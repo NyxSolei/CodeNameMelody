@@ -17,7 +17,7 @@ public class PlayerControlSax : PlayerControlsAbstract
         }
     }
     private string _playerType = "sax";
-    private float _highjumpForce = 10f;
+    private float _highjumpForce = 100f;
 
     public override string GetPlayerType()
     {

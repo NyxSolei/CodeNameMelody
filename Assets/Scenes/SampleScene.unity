@@ -6268,11 +6268,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2781138641930456042, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.45515
+      value: -34.888393
       objectReference: {fileID: 0}
     - target: {fileID: 2781138641930456042, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.85617
+      value: 7.1009703
       objectReference: {fileID: 0}
     - target: {fileID: 2781138641930456042, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6280,7 +6280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3281219818268459796, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3281219818268459796, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_TagString
@@ -6352,7 +6352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7475308056638249727, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: orthographic size
-      value: 15.867771
+      value: 6.76
       objectReference: {fileID: 0}
     - target: {fileID: 7475308056638249727, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_BackGroundColor.b

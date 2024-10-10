@@ -45,7 +45,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private string _checkpointTag = "checkpoint";
     private string _trapTag = "trap";
     private float _moveSpeed = 5f;
-    private float _jumpForce = 5f;
+    private float _jumpForce = 15f;
     private float _saxJumpForce = 8f;
 
     public static PlayerControls instance;
