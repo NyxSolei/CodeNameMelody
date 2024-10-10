@@ -192,6 +192,26 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5202769490884590805, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202769490884590805, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202769490884590805, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202769490884590805, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.0439
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202769490884590805, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.778
+      objectReference: {fileID: 0}
     - target: {fileID: 5354333446760660996, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -228,6 +248,26 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6464425794738008418, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464425794738008418, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464425794738008418, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464425794738008418, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.0439
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464425794738008418, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.778
+      objectReference: {fileID: 0}
     - target: {fileID: 6656734228906765255, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -244,13 +284,33 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6788890022517116417, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.6052728
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788890022517116417, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.617187
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788890022517116417, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788890022517116417, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.0755
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788890022517116417, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8481
+      objectReference: {fileID: 0}
     - target: {fileID: 6998797039098892882, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.016699791
       objectReference: {fileID: 0}
     - target: {fileID: 6998797039098892882, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.54
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6998797039098892882, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
       propertyPath: m_LocalPosition.z
@@ -320,6 +380,46 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8277387795965204395, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277387795965204395, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277387795965204395, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277387795965204395, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.0439
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277387795965204395, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.778
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857393918018883147, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857393918018883147, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857393918018883147, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857393918018883147, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.0439
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857393918018883147, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.778
+      objectReference: {fileID: 0}
     - target: {fileID: 8983064732772162038, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -353,7 +453,29 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4743959226540087822, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6553803116058983261}
+    - targetCorrespondingSourceObject: {fileID: 3167942391626598845, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8825267256533884651}
   m_SourcePrefab: {fileID: 100100000, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+--- !u!1 &1445949412094937376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3167942391626598845, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
+  m_PrefabInstance: {fileID: 4604861926736167069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8825267256533884651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445949412094937376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955960e499e421c48800e2e12125f024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  parallaxEffect: {x: 0, y: 0.9}
 --- !u!1 &5561908777654130550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8270894899107665899, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
@@ -372,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxEffect: 0.9
+  parallaxEffect: {x: 0, y: 0}
 --- !u!4 &6829560766922691279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6998797039098892882, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
@@ -396,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxEffect: 0.5
+  parallaxEffect: {x: 0, y: 0}
 --- !u!1 &8868135706432304084 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4969216374247158601, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
@@ -415,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxEffect: 0.7
+  parallaxEffect: {x: 0, y: 0}
 --- !u!1 &9093379313147796115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4743959226540087822, guid: 4d38fb46f8cedb644ba8ebe6c2272e17, type: 3}
@@ -434,4 +556,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  parallaxEffect: 0.3
+  parallaxEffect: {x: 0, y: 0}

@@ -4,32 +4,52 @@ using UnityEngine;
 
 public class BQController : MonoBehaviour
 {
-    private float startPos, length;
+    private Vector2 length;
+    private Vector2 startPos;
     public GameObject cam;
-    public float parallaxEffect;
+    public Vector2 parallaxEffect;
+    private float _distance;
 
     // Start is called before the first frame update
     void Start()
     {
-        startPos = transform.position.x;
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        startPos = transform.position;
+        length = GetComponent<SpriteRenderer>().bounds.size;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float distance = cam.transform.position.x * parallaxEffect;
-        float movement = cam.transform.position.x * (1 - parallaxEffect);
+        float distanceX = cam.transform.position.x * parallaxEffect.x;
+        float movementX = cam.transform.position.x * (1 - parallaxEffect.x);
 
-        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
+        float distanceY = cam.transform.position.y * parallaxEffect.y;
+        float movementY = cam.transform.position.y * (1 - parallaxEffect.y);
 
-        if(movement > startPos + length)
+        transform.position = new Vector3(startPos.x + distanceX, startPos.y + distanceY, transform.position.z);
+
+        if(movementX > startPos.x + length.x)
         {
-            startPos += length;
+            startPos.x += length.x;
         }
-        else if (movement < startPos - length)
+        else if (movementX < startPos.x - length.x)
         {
-            startPos -= length;
+            startPos.x -= length.x;
+        }
+
+        if (movementY > startPos.y + length.y)
+        {
+            startPos.y += length.y;
+        }
+        else if (movementY < startPos.y - length.y)
+        {
+            startPos.y -= length.y;
         }
     }
+
+    /*void Update()
+   {
+       _distance = (cam.transform.position.x * parallaxEffect);
+       transform.position = new Vector2(startPos + _distance, transform.position.y);
+   }*/
 }
