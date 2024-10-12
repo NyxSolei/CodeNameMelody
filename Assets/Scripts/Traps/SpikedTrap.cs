@@ -5,14 +5,14 @@ using static DamageInterface;
 
 public class SpikedTrap : Trap
 {
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (player != null)
-        {
-            ApplyDamage(player);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Player player = collision.gameObject.GetComponent<Player>();
+    //    if (player != null)
+    //    {
+    //        ApplyDamage(player);
+    //    }
+    //}
 
     public override void ApplyDamage(IDamagable damagable)
     {

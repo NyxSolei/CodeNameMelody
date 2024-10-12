@@ -6,7 +6,8 @@ using static DamageInterface;
 public class FallingTrap : Trap
 {
     public float fallSpeed = 5f; 
-    private bool isFalling = false; 
+    private bool isFalling = false;
+    private int trapDamage = 5;
     private void Update()
     {
         if (isFalling)
@@ -15,32 +16,27 @@ public class FallingTrap : Trap
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (player != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            isFalling = true; 
+            collision.gameObject.GetComponent<PlayerControls>().TakeDamage(trapDamage);
         }
     }
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    Player player = collision.gameObject.GetComponent<Player>();
+    //    if (player != null && isFalling)
+    //    {
+    //        ApplyDamage(player); 
+
+    //        Die(); 
+    //    }
+    //}
 
     public override void ApplyDamage(IDamagable damagable)
     {
-        Debug.Log("Falling trap has fallen on the player!");
-        if (damagable != null)
-        {
-            damagable.TakeDamage(5);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (player != null && isFalling)
-        {
-            ApplyDamage(player); 
-
-            Die(); 
-        }
+        
     }
 }
