@@ -5,14 +5,20 @@ using static DamageInterface;
 
 public class FallingTrap : Trap
 {
-    public float fallSpeed = 5f; 
-    private bool isFalling = false;
     private int trapDamage = 5;
-    private void Update()
+    Rigidbody rb;
+
+    private void Start()
     {
-        if (isFalling)
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Equals("Player"))
         {
-            transform.position += Vector3.down * fallSpeed * Time.deltaTime; 
+            rb.isKinematic = false;
+            Debug.Log("LAMA ATA LO NOFEL");
         }
     }
 
