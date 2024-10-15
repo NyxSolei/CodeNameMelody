@@ -45,7 +45,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private string _checkpointTag = "checkpoint";
     private string _trapTag = "trap";
     private float _moveSpeed = 10f;
-    private float _jumpForce = 15f;
+    private float _jumpForce = 12f;
     private float _saxJumpForce = 8f;
 
     public static PlayerControls instance;
@@ -158,20 +158,26 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         if (Input.GetKeyDown(this._jumpKey) && this.GetIsGrounded())
         {
-            
+
 
             if (this.GetCurrentCharacterType() == this._saxType)
             {
-                this._currentJumpForce = PlayerControlSax.instance.GetJumpForce();
+                this.SetPlayerCurrentJumpForce(PlayerControlSax.instance.GetJumpForce());
             }
             else
             {
                 // to complete
-                this._currentJumpForce = PlayerControlGuitar.instance.GetJumpForce();
+                this.SetPlayerCurrentJumpForce(PlayerControlGuitar.instance.GetJumpForce());
             }
+
+            Debug.Log(this._currentJumpForce);
             this._rb.velocity = new Vector2(this._rb.velocity.x, this._currentJumpForce);
         }
-        
+
+    }
+    public void SetPlayerCurrentJumpForce(float jumpForce)
+    {
+        this._currentJumpForce = jumpForce;
     }
     public void Move()
     {
@@ -206,7 +212,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         PlayerControlGuitar.instance.SetJumpForce(this._jumpForce);
         PlayerControlPiano.instance.SetJumpForce(this._jumpForce);
-        PlayerControlSax.instance.SetJumpForce(this._saxJumpForce);
+        PlayerControlSax.instance.SetJumpForce(this._jumpForce);
     }
     public void SetCharactersSpeed()
     {

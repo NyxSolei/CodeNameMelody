@@ -17,7 +17,7 @@ public class PlayerControlSax : PlayerControlsAbstract
         }
     }
     private string _playerType = "sax";
-    private float _highjumpForce = 100f;
+    private float _highjumpForce = 30f;
 
     public override string GetPlayerType()
     {
@@ -28,13 +28,15 @@ public class PlayerControlSax : PlayerControlsAbstract
     {
         if (!this.IsJumpForceSet())
         {
-            this.SetJumpForce(this._highjumpForce);
+            PlayerControls.instance.SetPlayerCurrentJumpForce(this._highjumpForce);
         }
+
+        PlayerControls.instance.Jump();
     }
 
     public bool IsJumpForceSet()
     {
-        if(this.GetJumpForce() == this._highjumpForce)
+        if (this.GetJumpForce() == this._highjumpForce)
         {
             return true;
         }
