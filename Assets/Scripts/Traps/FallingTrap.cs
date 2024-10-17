@@ -3,40 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using static DamageInterface;
 
-public class FallingTrap : Trap
+public class FallingTrap : AbstractTrap
 {
-    public float fallSpeed = 5f; 
-    private bool isFalling = false;
-    private int trapDamage = 5;
-    private void Update()
+    private static FallingTrap _instance;
+    public static FallingTrap instance
     {
-        if (isFalling)
+        get
         {
-            transform.position += Vector3.down * fallSpeed * Time.deltaTime; 
+            if (_instance == null)
+            {
+                _instance = new FallingTrap();
+            }
+            return _instance;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<PlayerControls>().TakeDamage(trapDamage);
-        }
-    }
-
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    Player player = collision.gameObject.GetComponent<Player>();
-    //    if (player != null && isFalling)
-    //    {
-    //        ApplyDamage(player); 
-
-    //        Die(); 
-    //    }
-    //}
 
     public override void ApplyDamage(IDamagable damagable)
     {
-        
+        damagable.TakeDamage(this.GetTrapDamage());
     }
 }
