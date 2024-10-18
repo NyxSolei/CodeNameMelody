@@ -112,6 +112,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         // increases character index by 1
         // if index out of bounds, returns index to 0
+        SoundSystem.instance.stopCurrentBGM();
 
         if (this.GetCurrentCharacterTypeIndex() == this.GetMaxCharacterTypeIndex())
         {
@@ -124,6 +125,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
 
         // changes the sprite
         this.ChangeCurrentCharacterSprite();
+        //new bgm play
+        SoundSystem.instance.playNewBGM();
     }
     private void CheckButtonToTriggerChange()
     {
@@ -136,6 +139,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         if (Input.GetKeyDown(_abilityUsageTriggerKey))
         {
+            SoundSystem.instance.playByPlayerType();
             if (this.GetCurrentCharacterType() == this._guitarType)
             {
                 PlayerControlGuitar.instance.UseAbility();
@@ -232,6 +236,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         this.ChangeCurrentCharacterSprite();
         this.UpdateHealthAtStart();
         this.SetDefaultRespawnPoint();
+        //play music
+        SoundSystem.instance.PlayBGMOnStart();
     }
     public void UpdateHealthAtStart()
     {
