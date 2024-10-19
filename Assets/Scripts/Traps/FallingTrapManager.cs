@@ -24,7 +24,7 @@ public class FallingTrapManager : MonoBehaviour
         this._rb.isKinematic = false;
         this.hasFallen = true;
     }
-    private void OnCollisionEnter(Collision2D collision)
+    private void OnCollisionEnter2D (Collision2D collision)
     {
         DamageInterface.IDamagable damagable = collision.gameObject.GetComponent<DamageInterface.IDamagable>();
         if (damagable != null)
