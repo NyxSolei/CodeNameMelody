@@ -47,6 +47,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private float _moveSpeed = 10f;
     private float _jumpForce = 12f;
     private float _saxJumpForce = 30f;
+    private Dictionary<string, int> _collectibleInventory = new Dictionary<string, int>{ { "MusicRecord", 0 }, { "Note", 0 } };
+    private int collectibleIncrement = 1;
 
     public static PlayerControls instance;
     void Awake()
@@ -313,12 +315,23 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         {
             SetCheckpoint(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y);
         }
-        else if (collision.gameObject.CompareTag(this._trapTag))
+
+        IItem item = collision.gameObject.GetComponent<IItem>();
+        if (item != null)
         {
-            /// get damage from the trap behavior script
+            item.Collect();
         }
     }
-    // collectible
+
+    private void IncreaseCollectibleCount(string collectibleType)
+    {
+        if (_collectibleInventory.ContainsKey(collectibleType))
+        {
+            Debug.Log($"Before: {_collectibleInventory[collectibleType]} {collectibleType}");
+            _collectibleInventory[collectibleType] += this.collectibleIncrement;
+            Debug.Log($"After: {_collectibleInventory[collectibleType]} {collectibleType}");
+        }
+    }
 
     private void Start()
     {
