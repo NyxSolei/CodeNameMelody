@@ -9,7 +9,7 @@ public abstract class AbstractTrap : DamageInterface.IDamagable
     LayerMask whatIDamage;
     private int _zeroHealth = 0;
 
-    public void SetLayerForCheck(LayerMask layer)
+    private void SetLayerForCheck(LayerMask layer)
     {
         this.whatIDamage = layer;
     }
@@ -37,9 +37,10 @@ public abstract class AbstractTrap : DamageInterface.IDamagable
     {
         return this._trapHealth;
     }
-    private bool IsInLayer(GameObject gameObject, LayerMask layer)
+    public bool IsInLayer(GameObject gameObject)
     {
-        return (layer.value & (1 << gameObject.layer)) != 0;
+        this.SetLayerForCheck(gameObject.layer);
+        return (this.whatIDamage.value & (1 << gameObject.layer)) != 0;
     }
     public abstract void ApplyDamage(DamageInterface.IDamagable damagable);
     public void Die()
@@ -51,4 +52,5 @@ public abstract class AbstractTrap : DamageInterface.IDamagable
         this.SetHealth(this.GetHealth() - damageAmount);
     }
 
+    public abstract string GetTrapType();
 }

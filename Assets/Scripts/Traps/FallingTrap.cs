@@ -18,8 +18,14 @@ public class FallingTrap : AbstractTrap
         }
     }
 
+    private string _trapType = "falling";
     public override void ApplyDamage(IDamagable damagable)
     {
         damagable.TakeDamage(this.GetTrapDamage());
+    }
+
+    public override string GetTrapType()
+    {
+        return this._trapType;
     }
 }

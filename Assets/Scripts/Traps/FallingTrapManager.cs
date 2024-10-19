@@ -5,7 +5,7 @@ using UnityEngine;
 public class FallingTrapManager : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    private bool hasFallen = false;
+    private bool _hasFallen = false;
     private int _fallingTrapDamage = 10;
     
     void Start()
@@ -15,6 +15,14 @@ public class FallingTrapManager : MonoBehaviour
         this.SetFallingTrapDamage();
     }
 
+    private void SwitchHasFallen()
+    {
+        this._hasFallen = !this._hasFallen;
+    }
+    private bool GetHasFallen()
+    {
+        return this._hasFallen;
+    }
     private void SetFallingTrapDamage()
     {
         FallingTrap.instance.SetTrapDamage(this._fallingTrapDamage);
@@ -22,14 +30,36 @@ public class FallingTrapManager : MonoBehaviour
     private void TriggerFall()
     {
         this._rb.isKinematic = false;
-        this.hasFallen = true;
+        this.SwitchHasFallen();
     }
     private void OnCollisionEnter2D (Collision2D collision)
     {
         DamageInterface.IDamagable damagable = collision.gameObject.GetComponent<DamageInterface.IDamagable>();
         if (damagable != null)
         {
-            FallingTrap.instance.ApplyDamage(damagable); 
+            // ensures that the collision object is in layer
+
+            if (FallingTrap.instance.IsInLayer(collision.gameObject))
+            {
+                // applies damage
+                FallingTrap.instance.ApplyDamage(damagable);
+            }
+            
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (FallingTrap.instance.IsInLayer(collision.gameObject) && !this.GetHasFallen())
+        {
+            // ensure that the *player* is under the trap
+            DamageInterface.IDamagable damagable = collision.GetComponent<DamageInterface.IDamagable>();
+            if (damagable != null)
+            {
+                // Make the trap fall
+                TriggerFall();
+            }
         }
     }
 
