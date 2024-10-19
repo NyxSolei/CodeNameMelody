@@ -47,7 +47,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private float _moveSpeed = 10f;
     private float _jumpForce = 12f;
     private float _saxJumpForce = 8f;
-    private Dictionary<string, int> _collectibleInventory = new Dictionary<string, int>{ { "MusicRecord", 0 }, { "Notes", 0 } };
+    private Dictionary<string, int> _collectibleInventory = new Dictionary<string, int>{ { "MusicRecord", 0 }, { "Note", 0 } };
     private int collectibleIncrement = 1;
 
     public static PlayerControls instance;
@@ -318,7 +318,6 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         if (item != null)
         {
             item.Collect();
-            
         }
     }
 
