@@ -1,25 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static DamageInterface;
 
-public class FallingTrap : AbstractTrap
+public class GroundTrap : AbstractTrap
 {
-    private static FallingTrap _instance;
-    public static FallingTrap instance
+    private static GroundTrap _instance;
+    public static GroundTrap instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = new FallingTrap();
+                _instance = new GroundTrap();
             }
             return _instance;
         }
     }
 
-    private string _trapType = "falling";
-    public override void ApplyDamage(IDamagable damagable)
+    private string _trapType = "ground";
+    public override void ApplyDamage(DamageInterface.IDamagable damagable)
     {
         damagable.TakeDamage(this.GetTrapDamage());
     }
