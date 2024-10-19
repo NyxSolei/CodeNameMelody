@@ -46,7 +46,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private string _trapTag = "trap";
     private float _moveSpeed = 10f;
     private float _jumpForce = 12f;
-    private float _saxJumpForce = 8f;
+    private float _saxJumpForce = 30f;
     private Dictionary<string, int> _collectibleInventory = new Dictionary<string, int>{ { "MusicRecord", 0 }, { "Note", 0 } };
     private int collectibleIncrement = 1;
 
@@ -162,16 +162,18 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     }
     public void Jump()
     {
-        if (Input.GetKeyDown(this._jumpKey) && this.GetIsGrounded())
+        if ((Input.GetKeyDown(this._jumpKey)|| (Input.GetKeyDown(this._abilityUsageTriggerKey) && (this.GetCurrentCharacterType() == this._saxType)) )&& this.GetIsGrounded())
         {
 
 
             if (this.GetCurrentCharacterType() == this._saxType)
             {
+                Debug.Log("sax type");
                 this.SetPlayerCurrentJumpForce(PlayerControlSax.instance.GetJumpForce());
             }
             else
             {
+                Debug.Log("not sax type");
                 // to complete
                 this.SetPlayerCurrentJumpForce(PlayerControlGuitar.instance.GetJumpForce());
             }
@@ -218,7 +220,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         PlayerControlGuitar.instance.SetJumpForce(this._jumpForce);
         PlayerControlPiano.instance.SetJumpForce(this._jumpForce);
-        PlayerControlSax.instance.SetJumpForce(this._jumpForce);
+        PlayerControlSax.instance.SetJumpForce(this._saxJumpForce);
     }
     public void SetCharactersSpeed()
     {
