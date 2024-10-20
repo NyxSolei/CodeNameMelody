@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -676857441
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -770618373, guid: bd644983e3e5eee449c1fbb14d1b547c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -172,9 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3177145e124c9f844a8e7bffa1f5e762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GuitarPlayerSprite: {fileID: 1916006403, guid: 13c92daf61c1bb142a141c3c4b6905e9, type: 3}
-  PianoPlayerSprite: {fileID: 1916006403, guid: 13c92daf61c1bb142a141c3c4b6905e9, type: 3}
-  SaxPlayerSprite: {fileID: 1916006403, guid: 13c92daf61c1bb142a141c3c4b6905e9, type: 3}
+  GuitarPlayerSprite: {fileID: 21300000, guid: 74080dcc7e188304c80c102832f9fa4d, type: 3}
+  PianoPlayerSprite: {fileID: 21300000, guid: 775bfde6b5679d5408cdee66680759f1, type: 3}
+  SaxPlayerSprite: {fileID: 21300000, guid: c7e3fe806afd0494ba198693f37e4926, type: 3}
   _groundCheck: {fileID: 1967020023106271213}
   _groundLayer:
     serializedVersion: 2

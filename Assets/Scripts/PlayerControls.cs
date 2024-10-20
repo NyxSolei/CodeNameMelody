@@ -45,10 +45,12 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private string _checkpointTag = "checkpoint";
     private string _trapTag = "trap";
     private float _moveSpeed = 10f;
-    private float _jumpForce = 12f;
+    private float _jumpForce = 25f;
     private float _saxJumpForce = 30f;
     private Dictionary<string, int> _collectibleInventory = new Dictionary<string, int>{ { "MusicRecord", 0 }, { "Note", 0 } };
     private int collectibleIncrement = 1;
+    private string _playerTag = "Player";
+    private int _deathYtransform = -10;
 
     public static PlayerControls instance;
     void Awake()
@@ -240,8 +242,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         this.ChangeCurrentCharacterSprite();
         this.UpdateHealthAtStart();
         this.SetDefaultRespawnPoint();
-        //play music
-        SoundSystem.instance.PlayBGMOnStart();
+        // set player tag
+        this.gameObject.tag = this._playerTag;
     }
     public void UpdateHealthAtStart()
     {
@@ -285,6 +287,10 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             // add here the death scene music and stuff
             this.Revive();
         }
+        else if (this.gameObject.transform.position.y <= this._deathYtransform)
+        {
+            this.Revive();
+        }
     }
     public void SetCheckpoint(float checkpointX, float checkpointY)
     {
@@ -311,11 +317,6 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(this._checkpointTag))
-        {
-            SetCheckpoint(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y);
-        }
-
         IItem item = collision.gameObject.GetComponent<IItem>();
         if (item != null)
         {
