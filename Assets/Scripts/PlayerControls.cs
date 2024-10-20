@@ -42,8 +42,6 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private int _minHealth = 0;
     private float _lastCheckpointX;
     private float _lastCheckpointY;
-    private string _checkpointTag = "checkpoint";
-    private string _trapTag = "trap";
     private float _moveSpeed = 10f;
     private float _jumpForce = 25f;
     private float _saxJumpForce = 30f;
@@ -260,6 +258,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         SoundSystem.instance.onStartAddType();
         SoundSystem.instance.PlayBGMOnStart();
         // display
+        NextCharacterDisplay.instance.AddDictionaryElementsOnStart();
         NextCharacterDisplay.instance.SetSpriteOnStart();
     }
     public void UpdateHealthAtStart()
@@ -346,9 +345,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         if (_collectibleInventory.ContainsKey(collectibleType))
         {
-            Debug.Log($"Before: {_collectibleInventory[collectibleType]} {collectibleType}");
+            //Debug.Log($"Before: {_collectibleInventory[collectibleType]} {collectibleType}");
             _collectibleInventory[collectibleType] += this.collectibleIncrement;
-            Debug.Log($"After: {_collectibleInventory[collectibleType]} {collectibleType}");
+            // UI handling
+            CollectibleCountDisplay.instance.IncreaseCollectibleDisplay(collectibleType);
+            //Debug.Log($"After: {_collectibleInventory[collectibleType]} {collectibleType}");
         }
     }
 

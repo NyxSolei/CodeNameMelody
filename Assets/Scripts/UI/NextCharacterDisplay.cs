@@ -12,6 +12,7 @@ public class NextCharacterDisplay : MonoBehaviour
     private string _saxType = "sax";
     private string _pianoType = "piano";
     private string _guitarType = "guitar";
+    private bool _elementsAreSet = false;
 
     private Dictionary<string, Sprite> _displayRotation = new Dictionary<string, Sprite> { };
 
@@ -26,13 +27,13 @@ public class NextCharacterDisplay : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        this.AddDictionaryElementsOnStart();
-    }
     public void SetSpriteOnStart()
     {
-        this.GetComponent<Image>().sprite = this._displayRotation[PlayerControls.instance.GetNextCharacterType()];
+        if (this._elementsAreSet)
+        {
+            this.GetComponent<Image>().sprite = this._displayRotation[PlayerControls.instance.GetNextCharacterType()];
+        }
+        
     }
 
     public void ChangeToNextSprite()
@@ -45,5 +46,6 @@ public class NextCharacterDisplay : MonoBehaviour
         this._displayRotation.Add(this._saxType, this._saxDisplay);
         this._displayRotation.Add(this._pianoType, this._pianoDisplay);
         this._displayRotation.Add(this._guitarType, this._guitarDisplay);
+        this._elementsAreSet = true;
     }
 }
