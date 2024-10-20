@@ -85,6 +85,5 @@ public class SoundSystem : MonoBehaviour
     private void Start()
     {
         this.onStartAddType();
-        this.PlayBGMOnStart();
     }
 }

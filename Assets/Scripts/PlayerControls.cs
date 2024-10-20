@@ -244,6 +244,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         this.SetDefaultRespawnPoint();
         // set player tag
         this.gameObject.tag = this._playerTag;
+        SoundSystem.instance.PlayBGMOnStart();
     }
     public void UpdateHealthAtStart()
     {
