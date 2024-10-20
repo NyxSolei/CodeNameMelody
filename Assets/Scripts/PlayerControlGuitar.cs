@@ -17,8 +17,6 @@ public class PlayerControlGuitar : PlayerControlsAbstract
         }
     }
 
-    private float _fireCooldown = 0.5f;
-    private float _nextFireTime = 0f;
     private string _playerType = "guitar";
 
     public override string GetPlayerType()

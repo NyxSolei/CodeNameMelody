@@ -7,7 +7,6 @@ public class GuitarProjectile : MonoBehaviour
     public float _speed = 90f;  
     public int _damage = 1;     
     public float _lifetime = 0.5f;
-    private string _trapTag = "Trap";
 
     Rigidbody2D rb;
 
