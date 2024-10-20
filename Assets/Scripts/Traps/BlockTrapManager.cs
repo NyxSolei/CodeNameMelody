@@ -12,7 +12,7 @@ public class BlockTrapManager : MonoBehaviour
 
     private void SetBlockTrapDamage()
     {
-        BlockTrap.instance.SetTrapDamage(this._blockTrapDamage);
+        BlockTrap.Instance.SetTrapDamage(this._blockTrapDamage);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,10 +21,10 @@ public class BlockTrapManager : MonoBehaviour
         {
             // ensures that the collision object is in layer
 
-            if (BlockTrap.instance.IsInLayer(collision.gameObject))
+            if (BlockTrap.Instance.IsInLayer(collision.gameObject))
             {
                 // applies damage
-                BlockTrap.instance.ApplyDamage(damagable);
+                BlockTrap.Instance.ApplyDamage(damagable);
             }
 
         }

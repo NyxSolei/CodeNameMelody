@@ -6,7 +6,7 @@ using static DamageInterface;
 public class BlockTrap : AbstractTrap
 {
     private static BlockTrap _instance;
-    public static BlockTrap instance
+    public static BlockTrap Instance
     {
         get
         {

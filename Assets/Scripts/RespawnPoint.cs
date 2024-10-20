@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class RespawnPoint : MonoBehaviour
 {
-    public int respawnIndex;
+    private string _playerTag = "Player";
+    private bool _isSet = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Player entered the trigger!");
-
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag(this._playerTag) && !this._isSet)
         {
-            Debug.Log("Respawn point set to: " + respawnIndex);
-
-            PlayerRespawnPoints playerRespawn = other.GetComponent<PlayerRespawnPoints>();
-            if (playerRespawn != null)
-            {
-                playerRespawn.SetRespawnPoint(respawnIndex);
-                Debug.Log("Player Respawned at: " + respawnIndex);
-            }
+            PlayerControls.instance.SetCheckpoint(this.transform.position.x, this.transform.position.y);
+            SoundSystem.instance.PlaySetCheckpoint();
+            this._isSet = !this._isSet;
         }
+       
     }
 }

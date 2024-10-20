@@ -11,6 +11,7 @@ public class SoundSystem : MonoBehaviour
     [SerializeField] AudioSource _guitarAbility;
     [SerializeField] AudioSource _pianoAbility;
     [SerializeField] AudioSource _saxAbility;
+    [SerializeField] AudioSource _setCheckpoint;
     private string _saxType = "sax";
     private string _pianoType = "piano";
     private string _guitarType = "guitar";
@@ -45,6 +46,10 @@ public class SoundSystem : MonoBehaviour
         }
     }
 
+    public void PlaySetCheckpoint()
+    {
+        this._setCheckpoint.Play();
+    }
     public void playCharacterSwitch()
     {
         this._characterSwitch.Play();
@@ -80,5 +85,6 @@ public class SoundSystem : MonoBehaviour
     private void Start()
     {
         this.onStartAddType();
+        this.PlayBGMOnStart();
     }
 }
