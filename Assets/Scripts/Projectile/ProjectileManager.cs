@@ -9,7 +9,10 @@ public class ProjectileManager : MonoBehaviour
     [SerializeField] GameObject _playerPrefab;
     private Transform _firingPoint;
     private Collider2D[] ignoreColliders;
-
+    private string _folderToLoadPath = "Musical Note Sprite Game Pack";
+    public Sprite[] allSprites;
+    private int _firstArrayIndex = 0;
+    private Vector2 _resizeSpriteScale = new Vector2(0.4f, 0.35f);
     public static ProjectileManager instance;
     void Awake()
     {
@@ -50,6 +53,8 @@ public class ProjectileManager : MonoBehaviour
 
         this.IgnoreCollisionWithPlayer(projectile);
 
+        this.SetRandomSpriteAtLaunch(projectile);
+
         Vector2 fireDirection = this.VectorDirectionAssignment(); // get the player's direction it's facing :D
 
         projectile.GetComponent<GuitarProjectile>().Launch(fireDirection);
@@ -59,5 +64,22 @@ public class ProjectileManager : MonoBehaviour
     private void Start()
     {
         ignoreColliders = this._playerPrefab.GetComponentsInChildren<Collider2D>();
+    }
+
+    public void LoadAllSprites()
+    {
+        allSprites = Resources.LoadAll<Sprite>(this._folderToLoadPath);
+    }
+
+    public void SetRandomSpriteAtLaunch(GameObject projectile)
+    {
+        int spriteIndex = Random.Range(this._firstArrayIndex, this.allSprites.Length);
+        projectile.GetComponent<SpriteRenderer>().sprite = this.allSprites[spriteIndex];
+        this.ResizeProjectileSprite(projectile);
+    }
+
+    public void ResizeProjectileSprite(GameObject projectile)
+    {
+        projectile.transform.localScale = this._resizeSpriteScale;
     }
 }
