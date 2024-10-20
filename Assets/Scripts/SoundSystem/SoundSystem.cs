@@ -27,7 +27,7 @@ public class SoundSystem : MonoBehaviour
             instance = this;
         }
     }
-    private void onStartAddType()
+    public void onStartAddType()
     {
         characterAudioDict.Add(this._saxType, this._saxAbility);
         characterAudioDict.Add(this._pianoType, this._pianoAbility);
@@ -82,8 +82,5 @@ public class SoundSystem : MonoBehaviour
         }
 
     }
-    private void Start()
-    {
-        this.onStartAddType();
-    }
+
 }

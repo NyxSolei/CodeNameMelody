@@ -20,15 +20,14 @@ public class GuitarProjectile : MonoBehaviour
     }
 
     // Handle collisions
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag(_trapTag))
+        ProjectileManager.instance.IgnoreCollisionWithPlayer(this.gameObject);
+        DamageInterface.IDamagable damagable = collision.gameObject.GetComponent<DamageInterface.IDamagable>();
+        if (damagable != null)
         {
-            // Apply damage to the enemy (implement damage system in your enemy class)
-            //other.GetComponent<Enemy>().TakeDamage(_damage);
-
-            
-            Destroy(gameObject);
+            damagable.TakeDamage(this._damage);
         }
     }
+
 }

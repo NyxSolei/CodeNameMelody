@@ -112,6 +112,16 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         return this._increaseIncrement;
     }
+
+    public string GetNextCharacterType()
+    {
+        if (this.GetCurrentCharacterTypeIndex() == this.GetMaxCharacterTypeIndex())
+        {
+            return this._characterType[this._firstCharacterTypeIndex];
+        }
+
+        return this._characterType[this.GetCurrentCharacterTypeIndex() + this.GetIncreaseIncrement()];
+    }
     private void TriggerCharacterChange()
     {
         // increases character index by 1
@@ -131,6 +141,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         this.ChangeCurrentCharacterSprite();
         //new bgm play
         SoundSystem.instance.playNewBGM();
+        // display
+        NextCharacterDisplay.instance.ChangeToNextSprite();
     }
     private void CheckButtonToTriggerChange()
     {
@@ -170,17 +182,17 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
 
             if (this.GetCurrentCharacterType() == this._saxType)
             {
-                Debug.Log("sax type");
+                
                 this.SetPlayerCurrentJumpForce(PlayerControlSax.instance.GetJumpForce());
             }
             else
             {
-                Debug.Log("not sax type");
+                
                 // to complete
                 this.SetPlayerCurrentJumpForce(PlayerControlGuitar.instance.GetJumpForce());
             }
 
-            Debug.Log(this._currentJumpForce);
+            
             this._rb.velocity = new Vector2(this._rb.velocity.x, this._currentJumpForce);
         }
 
@@ -244,7 +256,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         this.SetDefaultRespawnPoint();
         // set player tag
         this.gameObject.tag = this._playerTag;
+        //handling sound
+        SoundSystem.instance.onStartAddType();
         SoundSystem.instance.PlayBGMOnStart();
+        // display
+        NextCharacterDisplay.instance.SetSpriteOnStart();
     }
     public void UpdateHealthAtStart()
     {

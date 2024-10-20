@@ -5,8 +5,10 @@ using UnityEngine;
 public class ProjectileManager : MonoBehaviour
 {
 
-    [SerializeField] GameObject _projectilePrefab; 
+    [SerializeField] GameObject _projectilePrefab;
+    [SerializeField] GameObject _playerPrefab;
     private Transform _firingPoint;
+    private Collider2D[] ignoreColliders;
 
     public static ProjectileManager instance;
     void Awake()
@@ -31,9 +33,12 @@ public class ProjectileManager : MonoBehaviour
 
     public void IgnoreCollisionWithPlayer(GameObject projectile)
     {
-        Collider2D playerCollider = PlayerControls.instance.GetComponent<Collider2D>();
         Collider2D projectileCollider = projectile.GetComponent<Collider2D>();
-        Physics2D.IgnoreCollision(playerCollider, projectileCollider);
+
+        foreach(Collider2D ignoreCollider in this.ignoreColliders)
+        {
+            Physics2D.IgnoreCollision(ignoreCollider, projectileCollider);
+        }
     }
     public void FireProjectile()
     {
@@ -49,5 +54,10 @@ public class ProjectileManager : MonoBehaviour
 
         projectile.GetComponent<GuitarProjectile>().Launch(fireDirection);
     
+    }
+
+    private void Start()
+    {
+        ignoreColliders = this._playerPrefab.GetComponentsInChildren<Collider2D>();
     }
 }
