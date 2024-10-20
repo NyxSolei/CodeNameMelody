@@ -320,6 +320,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         if (item != null)
         {
             item.Collect();
+            IncreaseCollectibleCount(item.ReturnType());
         }
     }
 
