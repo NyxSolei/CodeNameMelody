@@ -269,6 +269,13 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         PlayerControlGuitar.instance.SetHealth(this._startingHealthPoints);
         PlayerControlPiano.instance.SetHealth(this._startingHealthPoints);
         PlayerControlSax.instance.SetHealth(this._startingHealthPoints);
+        // hanlde life bar
+        LifeBarDisplay.instance.InitializeHealthBar();
+    }
+
+    public int GetStartingHealth()
+    {
+        return this._startingHealthPoints;
     }
     public void TakeDamage(int damageTaken)
     {
@@ -281,6 +288,21 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
 
         //move with damage taken
         this.PlayerHurtMovemet();
+
+        // handle display
+        LifeBarDisplay.instance.UpdateHealthBar();
+    }
+
+    public int GetHealth()
+    {
+        if(PlayerControlPiano.instance.GetHealth() == PlayerControlGuitar.instance.GetHealth())
+        {
+            return PlayerControlGuitar.instance.GetHealth();
+        }
+        else
+        {
+            return PlayerControlPiano.instance.GetHealth();
+        }
     }
     private bool GetIsGrounded()
     {
