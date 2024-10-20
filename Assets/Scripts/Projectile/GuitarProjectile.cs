@@ -8,11 +8,12 @@ public class GuitarProjectile : MonoBehaviour
     public int _damage = 1;     
     public float _lifetime = 0.5f;
 
-    Rigidbody2D rb;
 
-    // This method will be called when the projectile is instantiated to set its direction
+    Rigidbody2D rb;
+    
     public void Launch(Vector2 direction)
     {
+        
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = direction * _speed;
         Destroy(gameObject, _lifetime);
@@ -28,5 +29,7 @@ public class GuitarProjectile : MonoBehaviour
             damagable.TakeDamage(this._damage);
         }
     }
+
+
 
 }

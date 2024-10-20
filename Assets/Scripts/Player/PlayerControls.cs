@@ -260,6 +260,9 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         // display
         NextCharacterDisplay.instance.AddDictionaryElementsOnStart();
         NextCharacterDisplay.instance.SetSpriteOnStart();
+        // handle projectile load
+        ProjectileManager.instance.LoadAllSprites();
+
     }
     public void UpdateHealthAtStart()
     {
