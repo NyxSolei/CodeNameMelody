@@ -62,6 +62,9 @@ TagManager:
   - name: lvl
     uniqueID: 3618109855
     locked: 0
+  - name: traps
+    uniqueID: 1569290499
+    locked: 0
   - name: front
     uniqueID: 2467191893
     locked: 0

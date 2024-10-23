@@ -55,6 +55,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private string _isSaxAnimLabel = "IsSax";
     private string _isGuitarAnimLabel = "IsGuitar";
     private string _isJumpingAnimLabel = "IsJumping";
+    private float _damageTakenXPushback = -10;
 
     public static PlayerControls instance;
     void Awake()
@@ -340,7 +341,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     }
     private void PlayerHurtMovemet()
     {
-        this._rb.velocity = new Vector2(this._rb.velocity.x, PlayerControlGuitar.instance.GetJumpForce());
+        this._rb.velocity = new Vector2(this._rb.velocity.x+this._damageTakenXPushback, PlayerControlGuitar.instance.GetJumpForce());
     }
     public int GetMinHealth()
     {
