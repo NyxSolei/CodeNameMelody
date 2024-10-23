@@ -160,15 +160,12 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             }
             else if (this.GetCurrentCharacterType() == this._saxType)
             {
-                // the use ability in this case only sets the jump force
-                // so we will need to check on update what is the type
                 PlayerControlSax.instance.UseAbility();
                 this.Jump();
             }
-            else
+            else if (PlayerControlPiano.instance.CooldownComplete() || PlayerControlPiano.instance.GetIsShieldSet())
             {
-                // to complete
-                this._currentSprite = this.PianoPlayerSprite;
+                PlayerControlPiano.instance.UseAbility();
             }
         }
     }
