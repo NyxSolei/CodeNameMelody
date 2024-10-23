@@ -11,7 +11,7 @@ public abstract class AbstractTrap : DamageInterface.IDamagable
 
     private void SetLayerForCheck(LayerMask layer)
     {
-        this.whatIDamage = layer;
+        this.whatIDamage.value = 64;
     }
     public int GetZeroHealth()
     {

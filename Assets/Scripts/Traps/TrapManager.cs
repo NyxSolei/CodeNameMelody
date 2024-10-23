@@ -6,7 +6,10 @@ public class TrapManager : MonoBehaviour
 {
     [SerializeField] Transform[] _trapLocations;
     [SerializeField] GameObject[] _trapsPrefabs = new GameObject[3];
-
+    private float _addedYToFallingTrap = 35;
+    private int _blockTrapIndex = 0;
+    private int _fallingTrapIndex = 1;
+    private float _addedYToBlockTrap = 5.5f;
 
     
     private int _firstIndex = 0;
@@ -22,13 +25,25 @@ public class TrapManager : MonoBehaviour
     {
         foreach(Transform loc in this._trapLocations)
         {
-            GameObject trapToInstantiate = this._trapsPrefabs[Random.Range(this._firstIndex, this._trapsPrefabs.Length)];
-            GameObject instantiatedTrap = Instantiate(trapToInstantiate);
+            int instantiationIndex = Random.Range(this._firstIndex, this._trapsPrefabs.Length);
+            GameObject trapToInstantiate = this._trapsPrefabs[instantiationIndex];
+            GameObject instantiatedTrap = Instantiate(trapToInstantiate, this.GetComponent<Transform>());
             Transform trapLocation = instantiatedTrap.GetComponent<Transform>();
-            trapLocation.position = new Vector2(loc.position.x, loc.position.y);
 
-            // if it's a falling trap type, we also need to set the trigger area
-            // TODO!
+            float yCreationPosition = loc.position.y;
+
+            if(instantiationIndex == this._blockTrapIndex)
+            {
+                yCreationPosition += this._addedYToBlockTrap;
+            }
+            else if(instantiationIndex == this._fallingTrapIndex)
+            {
+                yCreationPosition += this._addedYToFallingTrap;
+            }
+
+            trapLocation.position = new Vector2(loc.position.x, yCreationPosition);
+
+            
         }
     }
 }
