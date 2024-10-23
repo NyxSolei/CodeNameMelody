@@ -268,6 +268,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         // get rigidbody
         this._rb = GetComponent<Rigidbody2D>();
+        // get animator
+        this._animator = GetComponent<Animator>();
         // set character types
         this.SetCharacterTypes();
         this.SetStartingCharacter();

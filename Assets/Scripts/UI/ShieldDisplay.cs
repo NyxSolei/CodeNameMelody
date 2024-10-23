@@ -18,13 +18,7 @@ public class ShieldDisplay : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        foreach(GameObject prefab in this._shieldPrefabs)
-        {
-            Debug.Log(prefab);
-        }
-    }
+
     public void InstantiateNewShieldDisplay()
     {
         foreach(GameObject prefab in this._shieldPrefabs)
