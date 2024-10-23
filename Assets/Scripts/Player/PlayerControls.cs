@@ -73,6 +73,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             this._animator.SetBool(this._isGuitarAnimLabel, true);
             this._animator.SetBool(this._isPianoAnimLabel, false);
             this._animator.SetBool(this._isSaxAnimLabel, false);
+            //handle shield removal
+            PlayerControlPiano.instance.RemoveShield();
         }
         else if(this.GetCurrentCharacterType() == this._saxType)
         {
@@ -80,6 +82,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             this._animator.SetBool(this._isGuitarAnimLabel, false);
             this._animator.SetBool(this._isPianoAnimLabel, false);
             this._animator.SetBool(this._isSaxAnimLabel, true);
+            // handle shield removal
+            PlayerControlPiano.instance.RemoveShield();
         }
         else
         {
