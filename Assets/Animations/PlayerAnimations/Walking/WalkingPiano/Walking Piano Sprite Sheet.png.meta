@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf08fbad1da2f4a00a82dd89d5686fb1
+guid: 0fef770aa4c6537428029797916d9a32
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,33 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -136,106 +110,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite Jump Gutier_0
+      name: Walking Piano Sprite Sheet_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 94
-        width: 489
-        height: 607
-      alignment: 9
-      pivot: {x: 0.5137375, y: 0.5221337}
+        x: 207
+        y: 813
+        width: 274
+        height: 614
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31e549b66c122e740b5c6889d9ad9193
-      internalID: -906033036
+      spriteID: b5d4c92e65c95314497532f823b1cf99
+      internalID: 1778824863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Jump Gutier_1
+      name: Walking Piano Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 577
-        y: 91
-        width: 477
-        height: 587
-      alignment: 9
-      pivot: {x: 0.4639053, y: 0.511646}
+        x: 770
+        y: 807
+        width: 272
+        height: 626
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7b02c3ca373c6842a8d5a04f64f5955
-      internalID: 1030997037
+      spriteID: 5dfe05fa4bfff024ba916d0906f080dd
+      internalID: 1194202466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Jump Gutier_2
+      name: Walking Piano Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 1061
-        y: 95
-        width: 468
-        height: 539
-      alignment: 9
-      pivot: {x: 0.607876, y: 0.48894212}
+        x: 1314
+        y: 809
+        width: 272
+        height: 623
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b476866112ebbc74e8c5aea100f89c23
-      internalID: 1306807096
+      spriteID: 33383174b5a96754b9d08ac0d337e2a0
+      internalID: -2128819930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Jump Gutier_3
+      name: Walking Piano Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 1579
-        y: 97
-        width: 491
-        height: 520
-      alignment: 9
-      pivot: {x: 0.534085, y: 0.48405844}
+        x: 153
+        y: 132
+        width: 299
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21e6ef9cce877ec4c8efb9c9389c0f6e
-      internalID: 1083811161
+      spriteID: dc6e7d92846db564d9bfdee7913b63e6
+      internalID: 2105322601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Jump Gutier_4
+      name: Walking Piano Sprite Sheet_4
       rect:
         serializedVersion: 2
-        x: 2072
-        y: 84
-        width: 483
-        height: 540
-      alignment: 9
-      pivot: {x: 0.61832684, y: 0.5132361}
+        x: 728
+        y: 134
+        width: 272
+        height: 623
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd485d526e0cc064bbc4f540ec01883e
-      internalID: 1252306155
+      spriteID: be42ad172882d7648bc75fe077079e7b
+      internalID: 1956997770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking Piano Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 128
+        width: 272
+        height: 626
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcc72ede31d5c794bb9ce89cf0e80ec7
+      internalID: -466707232
       vertices: []
       indices: 
       edges: []
@@ -251,11 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite Jump Gutier_0: -906033036
-      Sprite Jump Gutier_1: 1030997037
-      Sprite Jump Gutier_2: 1306807096
-      Sprite Jump Gutier_3: 1083811161
-      Sprite Jump Gutier_4: 1252306155
+      Walking Piano Sprite Sheet_0: 1778824863
+      Walking Piano Sprite Sheet_1: 1194202466
+      Walking Piano Sprite Sheet_2: -2128819930
+      Walking Piano Sprite Sheet_3: 2105322601
+      Walking Piano Sprite Sheet_4: 1956997770
+      Walking Piano Sprite Sheet_5: -466707232
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
