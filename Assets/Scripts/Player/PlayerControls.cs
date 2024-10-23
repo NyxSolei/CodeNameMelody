@@ -233,9 +233,17 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         {
             this.FlipSprite();
         }
-
-        // set animation movement
-        this._animator.SetFloat(this._speedAnimLabel, Mathf.Abs(_moveDirection));
+        // check that it is not jumping
+        if (this.GetIsGrounded())
+        {
+            this._animator.SetBool(this._isJumpingAnimLabel, false);
+            this._animator.SetFloat(this._speedAnimLabel, Mathf.Abs(_moveDirection));
+        }
+        else
+        {
+            this._animator.SetFloat(this._speedAnimLabel, 0);
+            this._animator.SetBool(this._isJumpingAnimLabel, true);
+        }
     }
     public bool GetHasFlipped()
     {
