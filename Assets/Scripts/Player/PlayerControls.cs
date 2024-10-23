@@ -15,6 +15,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
 
     //privates
     private Rigidbody2D _rb;
+    private Animator _animator;
     private string _guitarType = "guitar";
     private string _saxType = "sax";
     private string _pianoType = "piano";
@@ -49,6 +50,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private int collectibleIncrement = 1;
     private string _playerTag = "Player";
     private int _deathYtransform = -10;
+    private string _speedAnimLabel = "Speed";
+    private string _isPianoAnimLabel = "IsPiano";
+    private string _isSaxAnimLabel = "IsSax";
+    private string _isGuitarAnimLabel = "IsGuitar";
+    private string _isJumpingAnimLabel = "IsJumping";
 
     public static PlayerControls instance;
     void Awake()
@@ -63,18 +69,27 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         if(this.GetCurrentCharacterType() == this._guitarType)
         {
-            this._currentSprite = this.GuitarPlayerSprite;
+            //this._currentSprite = this.GuitarPlayerSprite;
+            this._animator.SetBool(this._isGuitarAnimLabel, true);
+            this._animator.SetBool(this._isPianoAnimLabel, false);
+            this._animator.SetBool(this._isSaxAnimLabel, false);
         }
         else if(this.GetCurrentCharacterType() == this._saxType)
         {
-            this._currentSprite = this.SaxPlayerSprite;
+            //this._currentSprite = this.SaxPlayerSprite;
+            this._animator.SetBool(this._isGuitarAnimLabel, false);
+            this._animator.SetBool(this._isPianoAnimLabel, false);
+            this._animator.SetBool(this._isSaxAnimLabel, true);
         }
         else
         {
-            this._currentSprite = this.PianoPlayerSprite;
+            //this._currentSprite = this.PianoPlayerSprite;
+            this._animator.SetBool(this._isGuitarAnimLabel, false);
+            this._animator.SetBool(this._isPianoAnimLabel, true);
+            this._animator.SetBool(this._isSaxAnimLabel, false);
         }
 
-        this.GetComponent<SpriteRenderer>().sprite = this._currentSprite;
+        //this.GetComponent<SpriteRenderer>().sprite = this._currentSprite;
     }
     public void SetStartingCharacter()
     {
@@ -187,8 +202,13 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
                 this.SetPlayerCurrentJumpForce(PlayerControlGuitar.instance.GetJumpForce());
             }
 
-            
+            // animator handling
+            this._animator.SetBool(this._isJumpingAnimLabel, true);
             this._rb.velocity = new Vector2(this._rb.velocity.x, this._currentJumpForce);
+        }
+        else if(!Input.GetKeyDown(this._jumpKey) && this.GetIsGrounded())
+        {
+            this._animator.SetBool(this._isJumpingAnimLabel, false);
         }
 
     }
@@ -209,6 +229,9 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         {
             this.FlipSprite();
         }
+
+        // set animation movement
+        this._animator.SetFloat(this._speedAnimLabel, Mathf.Abs(_moveDirection));
     }
     public bool GetHasFlipped()
     {
