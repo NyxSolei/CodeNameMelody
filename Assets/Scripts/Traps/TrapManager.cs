@@ -9,7 +9,8 @@ public class TrapManager : MonoBehaviour
     private float _addedYToFallingTrap = 35;
     private int _blockTrapIndex = 0;
     private int _fallingTrapIndex = 1;
-    private float _addedYToBlockTrap = 5.5f;
+    private float _addedYToBlockTrap = 6f;
+    private int _minHealth = 0;
 
     
     private int _firstIndex = 0;
@@ -19,8 +20,49 @@ public class TrapManager : MonoBehaviour
         this.RandomizeTrapsAtStart();
     }
 
+    private void Update()
+    {
+        if(this.gameObject.transform.childCount > 0)
+        {
+            foreach (Transform trap in this.gameObject.transform)
+            {
+                if (this.CheckDestroyConditions(trap.gameObject))
+                {
+                    DamageInterface.IDamagable damagable = trap.gameObject.GetComponent<DamageInterface.IDamagable>();
+                    if (damagable != null)
+                    {
+                        damagable.Die();
+                    }
+                }
+            }
+        }
 
+    }
 
+    private bool CheckDestroyConditions(GameObject trap)
+    {
+        bool destroy = false;
+
+        // Try checking health from FallingTrapManager
+        if (trap.gameObject.GetComponent<FallingTrapManager>() != null)
+        {
+            destroy = trap.gameObject.GetComponent<FallingTrapManager>().GetHealth() < this._minHealth;
+        }
+
+        // Try checking health from GroundTrapManager
+        if (trap.gameObject.GetComponent<GroundTrapManager>() != null)
+        {
+            destroy = trap.gameObject.GetComponent<GroundTrapManager>().GetHealth() < this._minHealth;
+        }
+
+        // Try checking health from BlockTrapManager
+        if (trap.gameObject.GetComponent<BlockTrapManager>() != null)
+        {
+            destroy = trap.gameObject.GetComponent<BlockTrapManager>().GetHealth() < this._minHealth;
+        }
+
+        return destroy;
+    }
     private void RandomizeTrapsAtStart()
     {
         foreach(Transform loc in this._trapLocations)

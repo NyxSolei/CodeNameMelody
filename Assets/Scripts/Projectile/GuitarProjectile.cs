@@ -27,6 +27,7 @@ public class GuitarProjectile : MonoBehaviour
         if (damagable != null)
         {
             damagable.TakeDamage(this._damage);
+            Destroy(this.gameObject);
         }
     }
 

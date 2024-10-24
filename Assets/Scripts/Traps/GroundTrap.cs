@@ -18,6 +18,7 @@ public class GroundTrap : AbstractTrap
     }
 
     private string _trapType = "ground";
+
     public override void ApplyDamage(DamageInterface.IDamagable damagable)
     {
         damagable.TakeDamage(this.GetTrapDamage());
@@ -27,4 +28,6 @@ public class GroundTrap : AbstractTrap
     {
         return this._trapType;
     }
+
+
 }
