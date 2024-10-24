@@ -56,7 +56,6 @@ public class FallingTrapManager : MonoBehaviour, DamageInterface.IDamagable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(this.GetHasFallen());
         if (FallingTrap.instance.IsInLayer(collision.gameObject) && !this.GetHasFallen())
         {
             // ensure that the *player* is under the trap
