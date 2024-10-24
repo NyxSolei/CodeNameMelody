@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6667170480516572224}
   - component: {fileID: 8379834266796354392}
-  - component: {fileID: 5551251914874758800}
   - component: {fileID: 6087889720336285456}
-  - component: {fileID: 1347532900054553115}
+  - component: {fileID: -5670267426140480189}
   m_Layer: 7
   m_Name: Collectables Prefab
   m_TagString: Untagged
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: -676857441
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1554968509, guid: 28b1bce31f5de804ea490c8f72a66d58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b21c24ab2a6e9b7489237cc601d078e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5551251914874758800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 203861352377437028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd002716bcd0e414cba547aaaa4cd6f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &6087889720336285456
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,24 +121,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.6199999
---- !u!95 &1347532900054553115
-Animator:
-  serializedVersion: 5
+--- !u!114 &-5670267426140480189
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203861352377437028}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9ceb39546333dd14cbcb0666eb24b286, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e7d5f5794deab4bba136963c1227bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
