@@ -56,10 +56,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _trapsPrefabs:
   - {fileID: 8385394954423576664, guid: 23e343dccaac80443930427f00a199d8, type: 3}
   - {fileID: 3748359992753211451, guid: 5443795efa53c454c9f99703d16e61af, type: 3}
