@@ -2517,6 +2517,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collectable
       objectReference: {fileID: 0}
+    - target: {fileID: 1252042660589686945, guid: 42c12547c71e60044a123df0a0d1bb31, type: 3}
+      propertyPath: m_Name
+      value: MusicRecord_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609487711815345622, guid: 42c12547c71e60044a123df0a0d1bb31, type: 3}
+      propertyPath: m_Name
+      value: MusicRecord_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4864035898566483780, guid: 42c12547c71e60044a123df0a0d1bb31, type: 3}
+      propertyPath: m_Name
+      value: MusicRecord_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6218627086199582660, guid: 42c12547c71e60044a123df0a0d1bb31, type: 3}
+      propertyPath: m_Name
+      value: MusicRecord_2
+      objectReference: {fileID: 0}
     - target: {fileID: 6381383414592899156, guid: 42c12547c71e60044a123df0a0d1bb31, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35.058727
@@ -2556,6 +2572,14 @@ PrefabInstance:
     - target: {fileID: 6381383414592899156, guid: 42c12547c71e60044a123df0a0d1bb31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448289049842317083, guid: 42c12547c71e60044a123df0a0d1bb31, type: 3}
+      propertyPath: m_Name
+      value: MusicRecord_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495305694167559072, guid: 42c12547c71e60044a123df0a0d1bb31, type: 3}
+      propertyPath: m_Name
+      value: MusicRecord_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
