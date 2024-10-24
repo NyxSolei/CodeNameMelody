@@ -56,6 +56,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private string _isGuitarAnimLabel = "IsGuitar";
     private string _isJumpingAnimLabel = "IsJumping";
     private float _damageTakenXPushback = -10;
+    private bool _disableControls = false;
 
     public static PlayerControls instance;
     void Awake()
@@ -177,15 +178,27 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             if (this.GetCurrentCharacterType() == this._guitarType)
             {
                 PlayerControlGuitar.instance.UseAbility();
+                if (!CutsceneManager.instance.GetHasGuitarPlayed())
+                {
+                    CutsceneManager.instance.StartGuitarCutscene();
+                }
             }
             else if (this.GetCurrentCharacterType() == this._saxType)
             {
                 PlayerControlSax.instance.UseAbility();
                 this.Jump();
+                if (!CutsceneManager.instance.GetHasSaxPlayed())
+                {
+                    CutsceneManager.instance.StartSaxCutscene();
+                }
             }
             else if (PlayerControlPiano.instance.CooldownComplete() || PlayerControlPiano.instance.GetIsShieldSet())
             {
                 PlayerControlPiano.instance.UseAbility();
+                if (!CutsceneManager.instance.GetHasPianoPlayed())
+                {
+                    CutsceneManager.instance.StartPianoCutscene();
+                }
             }
         }
     }
@@ -297,6 +310,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         NextCharacterDisplay.instance.SetSpriteOnStart();
         // handle projectile load
         ProjectileManager.instance.LoadAllSprites();
+        // handle text loading
+        CutsceneManager.instance.SetScenesContent();
+        CutsceneManager.instance.SetRecordArraysAtStart();
+
+
 
     }
     public void UpdateHealthAtStart()
@@ -405,12 +423,32 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         if (_collectibleInventory.ContainsKey(collectibleType))
         {
-            //Debug.Log($"Before: {_collectibleInventory[collectibleType]} {collectibleType}");
+            
             _collectibleInventory[collectibleType] += this.collectibleIncrement;
             // UI handling
             CollectibleCountDisplay.instance.IncreaseCollectibleDisplay(collectibleType);
-            //Debug.Log($"After: {_collectibleInventory[collectibleType]} {collectibleType}");
+
+            if(collectibleType == "MusicRecord")
+            {
+                CutsceneManager.instance.StartRecordCutscene();
+            }
+
         }
+    }
+
+    public void SetDisableControls()
+    {
+        this._disableControls = true;
+    }
+
+    public void EnableControls()
+    {
+        this._disableControls = false;
+    }
+
+    public bool GetDisableControls()
+    {
+        return this._disableControls;
     }
 
     private void Start()
@@ -420,11 +458,22 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
 
     private void Update()
     {
+        if (!CutsceneManager.instance.GetHasTutorialPlayed())
+        {
+            // go to first cutscene
+            CutsceneManager.instance.StartTutorialCutscene();
+        }
+        if (!this._disableControls)
+        {
+            this.Move();
+            this.Jump();
+            this.CheckButtonToTriggerAbility();
+            this.CheckButtonToTriggerChange();
+            
+        }
+
         this.GroundCheck();
-        this.Move();
-        this.Jump();
-        this.CheckButtonToTriggerAbility();
-        this.CheckButtonToTriggerChange();
         this.DeathCheck();
+
     }
 }
