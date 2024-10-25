@@ -12,6 +12,8 @@ public class SoundSystem : MonoBehaviour
     [SerializeField] AudioSource _pianoAbility;
     [SerializeField] AudioSource _saxAbility;
     [SerializeField] AudioSource _setCheckpoint;
+    [SerializeField] AudioSource[] _recordSounds = new AudioSource[6];
+
     private string _saxType = "sax";
     private string _pianoType = "piano";
     private string _guitarType = "guitar";
@@ -46,6 +48,18 @@ public class SoundSystem : MonoBehaviour
         }
     }
 
+    public void PlayRecordCutsceneMusic(int index)
+    {
+        this.stopCurrentBGM();
+
+        this._recordSounds[index].Play();
+    }
+
+    public void StopRecordCutsceneMusic(int index)
+    {
+        this._recordSounds[index].Stop();
+        this.PlayBGMOnStart();
+    }
     public void PlaySetCheckpoint()
     {
         this._setCheckpoint.Play();

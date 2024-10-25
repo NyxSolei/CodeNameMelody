@@ -5,6 +5,7 @@ using UnityEngine;
 public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] GameObject[] _recordPlayerPrefab = new GameObject[6];
+    [SerializeField] ParticleSystem _playerEffect;
     private Dictionary<string, string[]> _scenesText = new Dictionary<string, string[]>();
     private bool[] _hasRecordsPlayed = new bool[6];
     private string[] _recordTitles = new string[6];
@@ -26,6 +27,8 @@ public class CutsceneManager : MonoBehaviour
     private string _jukeboxKey = "jukebox";
     private string _recordsCollectedKey = "collected";
     private string _jukeboxFullKey = "jukeboxComplete";
+    private string _typeRecord = "record";
+    private string _typeOther = "other";
 
     public static CutsceneManager instance;
     void Awake()
@@ -36,11 +39,11 @@ public class CutsceneManager : MonoBehaviour
             instance = this;
         }
     }
-    public void StartCutscene(string key, bool disableControls)
+    public void StartCutscene(string key, bool disableControls, string type)
     {
 
         
-        DisplayText.instance.DisplayMessagesSequentially(_scenesText[key], disableControls);
+        DisplayText.instance.DisplayMessagesSequentially(_scenesText[key], disableControls, type);
 
 
     }
@@ -52,7 +55,7 @@ public class CutsceneManager : MonoBehaviour
         {
             if (hasPlayed == false)
             {
-                StartCutscene(this._recordTitles[index], true);
+                StartCutscene(this._recordTitles[index], true, _typeRecord);
                 break;
             }
             else
@@ -60,9 +63,64 @@ public class CutsceneManager : MonoBehaviour
                 index++;
             }
         }
-        this._hasRecordsPlayed[index] = true;
+        
     }
 
+    private void ChangeRecordPlayedTrue(int index)
+    {
+        this._hasRecordsPlayed[index] = true;
+    }
+    public void PlayRecordCutsceneSound()
+    {
+        int index = 0;
+        foreach (bool hasPlayed in this._hasRecordsPlayed)
+        {
+            if (hasPlayed == false)
+            {
+                SoundSystem.instance.PlayRecordCutsceneMusic(index);
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+    }
+
+    public void StopRecordCutscene()
+    {
+        StopRecordCutsceneSound();
+
+        int index = 0;
+        foreach (bool hasPlayed in this._hasRecordsPlayed)
+        {
+            if (hasPlayed == false)
+            {
+                ChangeRecordPlayedTrue(index);
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+    }
+    public void StopRecordCutsceneSound()
+    {
+        int index = 0;
+        foreach (bool hasPlayed in this._hasRecordsPlayed)
+        {
+            if (hasPlayed == false)
+            {
+                SoundSystem.instance.StopRecordCutsceneMusic(index);
+                break;
+            }
+            else
+            {
+                index++;
+            }
+        }
+    }
     public void SetRecordArraysAtStart()
     {
         for(int index=0; index < this._hasRecordsPlayed.Length; index++)
@@ -91,23 +149,23 @@ public class CutsceneManager : MonoBehaviour
     public void StartSaxCutscene()
     {
         SetSaxHasPlayedTrue();
-        StartCutscene(this._saxKey, false);
+        StartCutscene(this._saxKey, false, _typeOther);
     }
 
     public void StartPianoCutscene()
     {
         SetPianoHasPlayedTrue();
-        StartCutscene(this._pianoKey, false);
+        StartCutscene(this._pianoKey, false, _typeOther);
     }
 
     public void StartGuitarCutscene()
     {
         SetGuitarHasPlayedTrue();
-        StartCutscene(this._guitarKey, false);
+        StartCutscene(this._guitarKey, false, _typeOther);
     }
     public void StartTutorialCutscene()
     {
-        StartCutscene(this._tutorialKey, true);
+        StartCutscene(this._tutorialKey, true, _typeOther);
         SetHasTutorialPlayedTrue();
     }
 
@@ -149,10 +207,28 @@ public class CutsceneManager : MonoBehaviour
     {
         return this._hasSwitchDisplayed;
     }
+
+    public void EnableParticleSystem()
+    {
+        if(_playerEffect!=null && !_playerEffect.isPlaying)
+        {
+            _playerEffect.transform.position = PlayerControls.instance.GetPlayerTransform();
+            _playerEffect.Play();
+        }
+    }
+
+    public void DisableParticleSystem()
+    {
+        if (_playerEffect != null && _playerEffect.isPlaying)
+        {
+            _playerEffect.Stop();
+        }
+    }
+
     public void SetScenesContent()
     {
         _scenesText[_tutorialKey] = new string[] { "Where am I...? This feels... familiar, but different...", "Oh, and my instrument is with me... I wonder how it sounds here.", "*To play your instrument, press the O button*" };
-        _scenesText[_firstRecordKey] = new string[] { "Oh, this is the most popular song from my parents' band.\n I could watch their performance videos forever...", "Dad, I think I understand.\n I need to collect the records\nwith music that will awaken Mom's memories of music!" };
+        _scenesText[_firstRecordKey] = new string[] { "Oh, this is the most popular song from my parents' band.\n I could watch their performance videos forever...", "Dad, I think I understand.","I need to collect the records\nwith music that will awaken Mom's memories of music!" };
         _scenesText[_secondRecordKey] = new string[] { "This melody...\nMom used to sing it to me when I was little, right before bed.\nI wish I could go back to those times when Dad was still with us..." };
         _scenesText[_thirdRecordKey] = new string[] { "This is the song they danced to at their wedding... I remember Mom telling me about it with such warmth." };
         _scenesText[_fourthRecordKey] = new string[] { "Dad always played this solo with such passion... Mom said that in those moments, it was like he became one with his music." };

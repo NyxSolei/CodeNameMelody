@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class DisplayText : MonoBehaviour
 {
     public Text _displayedText;
-    private float _timePerCharacter = 0.1f;
+    private float _timePerCharacter = 0.05f;
     private float fadeDuration = 1.0f;
     private Coroutine hideTextCoroutine;
-
+    private string _typeRecord = "record";
 
     public static DisplayText instance;
     void Awake()
@@ -73,20 +72,25 @@ public class DisplayText : MonoBehaviour
         }
     }
 
-    public void DisplayMessagesSequentially(string[] texts, bool disableControls)
+    public void DisplayMessagesSequentially(string[] texts, bool disableControls, string type)
     {
         if (disableControls)
         {
             PlayerControls.instance.SetDisableControls();
+            CutsceneManager.instance.EnableParticleSystem();
 
+            if(type == _typeRecord)
+            {
+                CutsceneManager.instance.PlayRecordCutsceneSound();
+            }
         }
-        StartCoroutine(DisplayMessagesRoutine(texts, disableControls));
+        StartCoroutine(DisplayMessagesRoutine(texts, disableControls, type));
 
 
 
     }
 
-    private IEnumerator DisplayMessagesRoutine(string[] texts, bool disableControls)
+    private IEnumerator DisplayMessagesRoutine(string[] texts, bool disableControls, string type)
     {
         foreach (string message in texts)
         {
@@ -100,7 +104,13 @@ public class DisplayText : MonoBehaviour
 
         if (disableControls)
         {
+            CutsceneManager.instance.DisableParticleSystem();
             PlayerControls.instance.EnableControls();
+
+            if (type == _typeRecord)
+            {
+                CutsceneManager.instance.StopRecordCutscene();
+            }
         }
     }
 }

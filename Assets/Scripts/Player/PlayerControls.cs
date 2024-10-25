@@ -313,6 +313,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         // handle text loading
         CutsceneManager.instance.SetScenesContent();
         CutsceneManager.instance.SetRecordArraysAtStart();
+        // handle particle sys
+        CutsceneManager.instance.DisableParticleSystem();
 
 
 
@@ -451,6 +453,18 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         return this._disableControls;
     }
 
+    private void DisableMovementAndResetState()
+    {
+        Vector2 movement = new Vector2(0, this._rb.velocity.y);
+        this._rb.velocity = movement;
+        this._animator.SetBool(this._isJumpingAnimLabel, false);
+    }
+
+    public Vector2 GetPlayerTransform()
+    {
+        return this.gameObject.transform.position;
+    }
+
     private void Start()
     {
         this.SetPlayerCharacterAtStart();
@@ -470,6 +484,10 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             this.CheckButtonToTriggerAbility();
             this.CheckButtonToTriggerChange();
             
+        }
+        else
+        {
+            DisableMovementAndResetState();
         }
 
         this.GroundCheck();
