@@ -6,6 +6,7 @@ public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] GameObject[] _recordPlayerPrefab = new GameObject[6];
     [SerializeField] ParticleSystem _playerEffect;
+    [SerializeField] GameObject _recordAnim;
     private Dictionary<string, string[]> _scenesText = new Dictionary<string, string[]>();
     private bool[] _hasRecordsPlayed = new bool[6];
     private string[] _recordTitles = new string[6];
@@ -29,6 +30,7 @@ public class CutsceneManager : MonoBehaviour
     private string _jukeboxFullKey = "jukeboxComplete";
     private string _typeRecord = "record";
     private string _typeOther = "other";
+    private float _recordFadeDuration = 0.1f; 
 
     public static CutsceneManager instance;
     void Awake()
@@ -64,6 +66,45 @@ public class CutsceneManager : MonoBehaviour
             }
         }
         
+    }
+
+    private void FadeInRecordAnim()
+    {
+        StartCoroutine(FadeSprite(0, 1));
+    }
+
+    private void FadeOutRecordAnim()
+    {
+        StartCoroutine(FadeSprite(1, 0));
+    }
+    public void EnableRecordShowing()
+    {
+        this._recordAnim.transform.position = PlayerControls.instance.GetPlayerTransform();
+        FadeInRecordAnim();
+        this._recordAnim.SetActive(true);
+    }
+
+    private IEnumerator FadeSprite(float startAlpha, float endAlpha)
+    {
+        float elapsedTime = 0f;
+        Color color = _recordAnim.GetComponent<SpriteRenderer>().color;
+
+        while (elapsedTime < _recordFadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / _recordFadeDuration);
+            _recordAnim.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, alpha);
+            yield return null;
+        }
+
+        // Ensure the final alpha is set
+        _recordAnim.GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, endAlpha);
+    }
+
+    public void DisableRecordShowing()
+    {
+        FadeOutRecordAnim();
+        this._recordAnim.SetActive(false);
     }
 
     private void ChangeRecordPlayedTrue(int index)
@@ -120,6 +161,11 @@ public class CutsceneManager : MonoBehaviour
                 index++;
             }
         }
+    }
+
+    public void StartRecordCollectedScene()
+    {
+        StartCutscene(_recordsCollectedKey, true, _typeOther);
     }
     public void SetRecordArraysAtStart()
     {
