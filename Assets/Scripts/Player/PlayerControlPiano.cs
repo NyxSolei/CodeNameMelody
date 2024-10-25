@@ -104,6 +104,7 @@ public class PlayerControlPiano : PlayerControlsAbstract, ICooldown
     public void RemoveShield()
     {
         this.SetShieldToMin();
+        ShieldDisplay.instance.UpdateShieldDisplay();
     }
 
     public bool GetIsShieldSet()

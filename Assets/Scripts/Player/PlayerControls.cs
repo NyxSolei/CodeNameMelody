@@ -315,6 +315,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         CutsceneManager.instance.SetRecordArraysAtStart();
         // handle particle sys
         CutsceneManager.instance.DisableParticleSystem();
+        // handle record anim
+        CutsceneManager.instance.DisableRecordShowing();
 
 
 
@@ -436,6 +438,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             }
 
         }
+    }
+
+    public Dictionary<string, int> GetCollectibleInventory()
+    {
+        return this._collectibleInventory;
     }
 
     public void SetDisableControls()

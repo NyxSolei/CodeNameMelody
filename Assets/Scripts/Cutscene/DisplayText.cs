@@ -81,6 +81,7 @@ public class DisplayText : MonoBehaviour
 
             if(type == _typeRecord)
             {
+                CutsceneManager.instance.EnableRecordShowing();
                 CutsceneManager.instance.PlayRecordCutsceneSound();
             }
         }
@@ -109,7 +110,13 @@ public class DisplayText : MonoBehaviour
 
             if (type == _typeRecord)
             {
+                CutsceneManager.instance.DisableRecordShowing();
                 CutsceneManager.instance.StopRecordCutscene();
+
+                if (WinningBehavior.instance.WinConditionsCheck())
+                {
+                    CutsceneManager.instance.StartRecordCollectedScene();
+                }
             }
         }
     }
