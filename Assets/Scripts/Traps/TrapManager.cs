@@ -9,7 +9,7 @@ public class TrapManager : MonoBehaviour
     private float _addedYToFallingTrap = 35;
     private int _blockTrapIndex = 0;
     private int _fallingTrapIndex = 1;
-    private float _addedYToBlockTrap = 6f;
+    private float _addedYToBlockTrap = 8f;
     private int _minHealth = 0;
 
     
