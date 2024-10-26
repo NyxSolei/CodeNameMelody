@@ -214,6 +214,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2013860918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9057884526082992204, guid: c5534e8efcec24a59967bc1af30ee5e6, type: 3}
+  m_PrefabInstance: {fileID: 207531531394507595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b7002004f2b49cd9b9f2fd69cb2844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &207531531394507595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,9 +285,29 @@ PrefabInstance:
       propertyPath: m_Colors.m_PressedColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1886377430790262580, guid: c5534e8efcec24a59967bc1af30ee5e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2013860918}
+    - target: {fileID: 1886377430790262580, guid: c5534e8efcec24a59967bc1af30ee5e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624578360186180357, guid: c5534e8efcec24a59967bc1af30ee5e6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5800425246457327706, guid: c5534e8efcec24a59967bc1af30ee5e6, type: 3}
       propertyPath: m_Name
       value: melody coverupdated
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209523532134547302, guid: c5534e8efcec24a59967bc1af30ee5e6, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209523532134547302, guid: c5534e8efcec24a59967bc1af30ee5e6, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
