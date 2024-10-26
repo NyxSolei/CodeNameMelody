@@ -9,6 +9,6 @@ public class ChangingScenes : MonoBehaviour
     public void GoToGame()
     {
         Debug.Log("Button Pressed");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("StartingDialouge");
     }
 }
