@@ -6,6 +6,13 @@ public class RespawnPoint : MonoBehaviour
 {
     private string _playerTag = "Player";
     private bool _isSet = false;
+    public ParticleSystem _respaunPointEffect;
+
+    private void Start()
+    {
+        _respaunPointEffect.Stop();
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +21,8 @@ public class RespawnPoint : MonoBehaviour
             PlayerControls.instance.SetCheckpoint(this.transform.position.x, this.transform.position.y);
             SoundSystem.instance.PlaySetCheckpoint();
             this._isSet = !this._isSet;
+
+            _respaunPointEffect.Play();
         }
-       
     }
 }
