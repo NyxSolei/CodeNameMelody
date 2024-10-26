@@ -413,12 +413,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         SetCheckpoint(this._rb.position.x, this._rb.position.y);
     }
-
     public void Die()
     {
         SoundSystem.instance.PlayDeathSound();
         this._rb.position = this.GetLastCheckpoint();
-        this.UpdateHealthAtStart();
+        //this.UpdateHealthAtStart();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

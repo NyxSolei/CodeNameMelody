@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CutsceneManager : MonoBehaviour
 {
     [SerializeField] GameObject[] _recordPlayerPrefab = new GameObject[6];
     [SerializeField] ParticleSystem _playerEffect;
     [SerializeField] GameObject _recordAnim;
+    [SerializeField] Image _vingette;
     private Dictionary<string, string[]> _scenesText = new Dictionary<string, string[]>();
     private bool[] _hasRecordsPlayed = new bool[6];
     private string[] _recordTitles = new string[6];
@@ -28,6 +30,7 @@ public class CutsceneManager : MonoBehaviour
     private string _jukeboxKey = "jukebox";
     private string _recordsCollectedKey = "collected";
     private string _jukeboxFullKey = "jukeboxComplete";
+    private string _firstEncounterKey = "firstEncounter";
     private string _typeRecord = "record";
     private string _typeOther = "other";
     private float _recordFadeDuration = 0.1f; 
@@ -68,6 +71,14 @@ public class CutsceneManager : MonoBehaviour
         
     }
 
+    public void DisableVingette()
+    {
+        this._vingette.enabled = false;
+    }
+    public void EnableVingette()
+    {
+        this._vingette.enabled = true;
+    }
     private void FadeInRecordAnim()
     {
         StartCoroutine(FadeSprite(0, 1));
@@ -220,10 +231,15 @@ public class CutsceneManager : MonoBehaviour
     }
     public void StartTutorialCutscene()
     {
+        DisableVingette();
         StartCutscene(this._tutorialKey, true, _typeOther);
         SetHasTutorialPlayedTrue();
     }
 
+    public void StartFirstEncounterCutscene()
+    {
+        StartCutscene(this._firstEncounterKey, true, _typeOther);
+    }
     public void SetSaxHasPlayedTrue()
     {
         this._hasSaxDisplayed = true;
@@ -295,6 +311,7 @@ public class CutsceneManager : MonoBehaviour
         _scenesText[_jukeboxKey] = new string[] { "A door? Maybe I can exit through there?", "…", "But it's locked...", "What's this old jukebox doing here?\nMaybe I need to insert the ones I've found?", "Hmm, looks like it's missing six records.\nI’ll go look for the others!" };
         _scenesText[_recordsCollectedKey] = new string[] { "Finally, I’ve collected all the records! I need to go back to the jukebox!" };
         _scenesText[_jukeboxFullKey] = new string[] { "Now let’s put them all here...", "Thank you, Dad, now I know how to make her remember again! We miss you..." };
+        _scenesText[_firstEncounterKey] = new string[] { "Hmm.. Something doesn't feel right...", "I should be careful." };
     }
 
     

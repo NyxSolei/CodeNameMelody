@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class DisplayText : MonoBehaviour
+public class StartSceneTextDisplay : MonoBehaviour
 {
     public Text _displayedText;
     private float _timePerCharacter = 0.05f;
     private float fadeDuration = 1.0f;
     private Coroutine hideTextCoroutine;
-    private string _typeRecord = "record";
 
-    public static DisplayText instance;
+    public static StartSceneTextDisplay instance;
     void Awake()
     {
         // Set the static instance
@@ -72,54 +72,27 @@ public class DisplayText : MonoBehaviour
         }
     }
 
-    public void DisplayMessagesSequentially(string[] texts, bool disableControls, string type)
+    public void DisplayMessagesSequentially(string[] texts )
     {
-        if (disableControls)
-        {
-            PlayerControls.instance.SetDisableControls();
-            CutsceneManager.instance.EnableParticleSystem();
 
-            if(type == _typeRecord)
-            {
-                CutsceneManager.instance.EnableVingette();
-                CutsceneManager.instance.EnableRecordShowing();
-                CutsceneManager.instance.PlayRecordCutsceneSound();
-            }
-        }
-        StartCoroutine(DisplayMessagesRoutine(texts, disableControls, type));
+        StartCoroutine(DisplayMessagesRoutine(texts));
 
 
 
     }
 
-    private IEnumerator DisplayMessagesRoutine(string[] texts, bool disableControls, string type)
+    private IEnumerator DisplayMessagesRoutine(string[] texts)
     {
         foreach (string message in texts)
         {
             TextDisplay(message);
 
-            
-            float displayTime = message.Length * _timePerCharacter + 2 * fadeDuration; 
+
+            float displayTime = message.Length * _timePerCharacter + 2 * fadeDuration;
 
             yield return new WaitForSeconds(displayTime);
         }
 
-        if (disableControls)
-        {
-            CutsceneManager.instance.DisableParticleSystem();
-            PlayerControls.instance.EnableControls();
-
-            if (type == _typeRecord)
-            {
-                CutsceneManager.instance.DisableVingette();
-                CutsceneManager.instance.DisableRecordShowing();
-                CutsceneManager.instance.StopRecordCutscene();
-
-                if (WinningBehavior.instance.WinConditionsCheck())
-                {
-                    CutsceneManager.instance.StartRecordCollectedScene();
-                }
-            }
-        }
+        DialogueContent.instance.StartGame();
     }
 }
