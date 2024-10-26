@@ -163,6 +163,15 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
+    public void StartFirstJukeCutscene()
+    {
+        StartCutscene(_jukeboxKey, true, _typeOther);
+    }
+
+    public void StartFinalCutscene()
+    {
+        StartCutscene(_jukeboxFullKey, true, _typeOther);
+    }
     public void StartRecordCollectedScene()
     {
         StartCutscene(_recordsCollectedKey, true, _typeOther);
@@ -283,7 +292,7 @@ public class CutsceneManager : MonoBehaviour
         _scenesText[_guitarKey] = new string[] { "Ooh, the sound coming from the guitar is so powerful,\n it feels like it could tear down an entire building!", "*To switch instruments, press the P button*" };
         _scenesText[_pianoKey] = new string[] { "When I play the piano, it's as if some invisible energy surrounds me.\n I feel protected in it.", "*To switch instruments, press the P button*" };
         _scenesText[_saxKey] = new string[] { "It seems when I play the saxophone, I become much lighter!\n Like gravity doesn't affect me as much anymore!", "*To switch instruments, press the P button*" };
-        _scenesText[_jukeboxKey] = new string[] { "A door? Maybe I can exit through there?", "…", "But it's locked...", "What's this old jukebox doing here? Maybe I need to insert the ones I've found?", "Hmm, looks like it's missing six records and I have only two. I’ll go look for the others!" };
+        _scenesText[_jukeboxKey] = new string[] { "A door? Maybe I can exit through there?", "…", "But it's locked...", "What's this old jukebox doing here?\nMaybe I need to insert the ones I've found?", "Hmm, looks like it's missing six records.\nI’ll go look for the others!" };
         _scenesText[_recordsCollectedKey] = new string[] { "Finally, I’ve collected all the records! I need to go back to the jukebox!" };
         _scenesText[_jukeboxFullKey] = new string[] { "Now let’s put them all here...", "Thank you, Dad, now I know how to make her remember again! We miss you..." };
     }

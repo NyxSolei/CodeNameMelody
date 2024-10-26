@@ -308,6 +308,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         // display
         NextCharacterDisplay.instance.AddDictionaryElementsOnStart();
         NextCharacterDisplay.instance.SetSpriteOnStart();
+        LifeBarDisplay.instance.InitializeHealthBar();
         // handle projectile load
         ProjectileManager.instance.LoadAllSprites();
         // handle text loading
@@ -383,11 +384,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         if(PlayerControlGuitar.instance.GetHealth()<=this.GetMinHealth() || PlayerControlPiano.instance.GetHealth()<=this.GetMinHealth() || PlayerControlSax.instance.GetHealth() <= this.GetMinHealth())
         {
             // add here the death scene music and stuff
-            this.Revive();
+            this.Die();
         }
         else if (this.gameObject.transform.position.y <= this._deathYtransform)
         {
-            this.Revive();
+            this.Die();
         }
     }
     public void SetCheckpoint(float checkpointX, float checkpointY)
@@ -403,15 +404,12 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         SetCheckpoint(this._rb.position.x, this._rb.position.y);
     }
-    public void Revive()
-    {
-        this._rb.position = this.GetLastCheckpoint();
-        this.UpdateHealthAtStart();
-    }
 
     public void Die()
     {
-        // rn do nothing
+        SoundSystem.instance.PlayDeathSound();
+        this._rb.position = this.GetLastCheckpoint();
+        this.UpdateHealthAtStart();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -435,6 +433,10 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             if(collectibleType == "MusicRecord")
             {
                 CutsceneManager.instance.StartRecordCutscene();
+            }
+            else
+            {
+                SoundSystem.instance.PlayCollectionSound();
             }
 
         }
@@ -463,6 +465,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private void DisableMovementAndResetState()
     {
         Vector2 movement = new Vector2(0, this._rb.velocity.y);
+        this._animator.SetFloat(this._speedAnimLabel, 0f);
         this._rb.velocity = movement;
         this._animator.SetBool(this._isJumpingAnimLabel, false);
     }

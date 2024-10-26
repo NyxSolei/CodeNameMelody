@@ -120,8 +120,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4967542517171095644}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MaxValue: 40
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1092,8 +1092,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 21.1, y: 8.03}
-  m_SizeDelta: {x: 336, y: 49}
+  m_AnchoredPosition: {x: -48.9, y: 8.03}
+  m_SizeDelta: {x: 196, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4550517080692284259
 CanvasRenderer:
@@ -1124,10 +1124,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 0c37897d80952da498056497e46faff6, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
