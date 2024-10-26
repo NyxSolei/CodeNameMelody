@@ -18,10 +18,18 @@ public class HealNote : MonoBehaviour , IItem
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (CompareTag("Player")) 
+        if (collision.CompareTag("Player")) 
         {
-            PlayerControls.instance.UpdateHealth( _healthRestore); 
-
+            if(PlayerControls.instance.GetHealth()+_healthRestore> PlayerControls.instance.GetStartingHealth())
+            {
+                PlayerControls.instance.UpdateHealth(PlayerControls.instance.GetStartingHealth());
+            }
+            else
+            {
+                PlayerControls.instance.UpdateHealth(_healthRestore);
+            }
+            
+            SoundSystem.instance.PlayHealSound();
             Collect();
         }
     }

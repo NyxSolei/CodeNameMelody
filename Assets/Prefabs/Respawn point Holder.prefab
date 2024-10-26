@@ -98,11 +98,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7944559298189421995, guid: edd6a4823f1ddc54e9e67f54984874cd, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 9
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7944559298189421995, guid: edd6a4823f1ddc54e9e67f54984874cd, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 12.16
+      value: 2.0266666
       objectReference: {fileID: 0}
     - target: {fileID: 7944559298189421995, guid: edd6a4823f1ddc54e9e67f54984874cd, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold

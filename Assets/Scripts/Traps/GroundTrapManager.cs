@@ -6,7 +6,7 @@ public class GroundTrapManager : MonoBehaviour, DamageInterface.IDamagable
 {
     private float _damageTimer = 0f;
     private int _groundTrapDamage = 2;
-    private float _secondInterval = 1f;
+    private float _secondInterval = 0.2f;
     private float _timerReset = 0f;
     private int _groundTrapHealth = 40;
 
