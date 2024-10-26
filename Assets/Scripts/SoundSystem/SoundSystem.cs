@@ -12,6 +12,8 @@ public class SoundSystem : MonoBehaviour
     [SerializeField] AudioSource _pianoAbility;
     [SerializeField] AudioSource _saxAbility;
     [SerializeField] AudioSource _setCheckpoint;
+    [SerializeField] AudioSource _deathSound;
+    [SerializeField] AudioSource _collectedSound;
     [SerializeField] AudioSource[] _recordSounds = new AudioSource[6];
 
     private string _saxType = "sax";
@@ -48,6 +50,14 @@ public class SoundSystem : MonoBehaviour
         }
     }
 
+    public void PlayCollectionSound()
+    {
+        this._collectedSound.Play();
+    }
+    public void PlayDeathSound()
+    {
+        this._deathSound.Play();
+    }
     public void PlayRecordCutsceneMusic(int index)
     {
         this.stopCurrentBGM();
