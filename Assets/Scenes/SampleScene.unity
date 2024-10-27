@@ -573,7 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2781138641930456042, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.747595
+      value: -22.605928
       objectReference: {fileID: 0}
     - target: {fileID: 2781138641930456042, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_LocalPosition.y
@@ -645,7 +645,7 @@ PrefabInstance:
       objectReference: {fileID: 817623764}
     - target: {fileID: 6577076996327300337, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.747595
+      value: -22.605928
       objectReference: {fileID: 0}
     - target: {fileID: 6577076996327300337, guid: b2842543e536fcf42941aacfc0c07b69, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3658,6 +3658,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 07f08e238beda0f4b9fa20e6a9458eaf, type: 3}
+    - target: {fileID: 4200953470512349787, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200953470512349787, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -676857441
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200953470512349787, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5322387259853481081, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
       propertyPath: m_Name
       value: Door and Juke
@@ -3863,6 +3891,10 @@ PrefabInstance:
     - target: {fileID: 4967542517171095644, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159457996439037820, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7985250684429278840, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
       propertyPath: m_AnchorMax.x
