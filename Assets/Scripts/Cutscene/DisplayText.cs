@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DisplayText : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DisplayText : MonoBehaviour
     private float fadeDuration = 1.0f;
     private Coroutine hideTextCoroutine;
     private string _typeRecord = "record";
+    private string _typeFinal = "final";
 
     public static DisplayText instance;
     void Awake()
@@ -119,6 +121,10 @@ public class DisplayText : MonoBehaviour
                 {
                     CutsceneManager.instance.StartRecordCollectedScene();
                 }
+            }
+            else if(type== _typeFinal)
+            {
+                SceneManager.LoadScene("ClosingScene");
             }
         }
     }

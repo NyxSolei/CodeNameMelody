@@ -15,6 +15,7 @@ public class SoundSystem : MonoBehaviour
     [SerializeField] AudioSource _deathSound;
     [SerializeField] AudioSource _collectedSound;
     [SerializeField] AudioSource _healSound;
+    [SerializeField] AudioSource _hitSound;
     [SerializeField] AudioSource[] _recordSounds = new AudioSource[6];
 
     private string _saxType = "sax";
@@ -51,6 +52,10 @@ public class SoundSystem : MonoBehaviour
         }
     }
 
+    public void PlayHitSound()
+    {
+        this._hitSound.Play();
+    }
     public void PlayHealSound()
     {
         this._healSound.Play();

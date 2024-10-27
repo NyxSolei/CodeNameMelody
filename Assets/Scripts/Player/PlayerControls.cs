@@ -356,6 +356,9 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         //move with damage taken
         this.PlayerHurtMovemet();
 
+        //handle sound
+        SoundSystem.instance.PlayHitSound();
+
         // handle display
         LifeBarDisplay.instance.UpdateHealthBar();
     }

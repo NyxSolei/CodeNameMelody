@@ -33,6 +33,7 @@ public class CutsceneManager : MonoBehaviour
     private string _firstEncounterKey = "firstEncounter";
     private string _typeRecord = "record";
     private string _typeOther = "other";
+    private string _typeFinal = "final";
     private float _recordFadeDuration = 0.1f; 
 
     public static CutsceneManager instance;
@@ -181,7 +182,7 @@ public class CutsceneManager : MonoBehaviour
 
     public void StartFinalCutscene()
     {
-        StartCutscene(_jukeboxFullKey, true, _typeOther);
+        StartCutscene(_jukeboxFullKey, true, _typeFinal);
     }
     public void StartRecordCollectedScene()
     {
