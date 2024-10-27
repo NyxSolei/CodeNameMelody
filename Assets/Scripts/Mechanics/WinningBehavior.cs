@@ -27,8 +27,5 @@ public class WinningBehavior : MonoBehaviour
 
         return false;
     }
-    void Update()
-    {
-        
-    }
+
 }
