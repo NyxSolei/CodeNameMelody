@@ -1723,6 +1723,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vingette
       objectReference: {fileID: 0}
+    - target: {fileID: 1611743490180814350, guid: 7d5e3ae9df5802440bbffaa2ba1f4785, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611743490180814350, guid: 7d5e3ae9df5802440bbffaa2ba1f4785, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5964748547822908913, guid: 7d5e3ae9df5802440bbffaa2ba1f4785, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
