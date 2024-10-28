@@ -340,6 +340,16 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         LifeBarDisplay.instance.UpdateHealthBar();
     }
 
+    public void Heal(int hp)
+    {
+        int updateHp = this.GetHealth() + hp;
+        PlayerControlGuitar.instance.SetHealth(updateHp);
+        PlayerControlPiano.instance.SetHealth(updateHp);
+        PlayerControlSax.instance.SetHealth(updateHp);
+        // hanlde life bar
+        LifeBarDisplay.instance.UpdateHealthBarOnHeal();
+    }
+
     public int GetStartingHealth()
     {
         return this._startingHealthPoints;

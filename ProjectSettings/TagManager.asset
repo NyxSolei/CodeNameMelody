@@ -71,3 +71,6 @@ TagManager:
   - name: damage
     uniqueID: 3321415789
     locked: 0
+  - name: UI
+    uniqueID: 1624922763
+    locked: 0
