@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4021082544300566291}
   - component: {fileID: 5258542800290006650}
   - component: {fileID: 4120574289842125208}
+  - component: {fileID: 2736643012122880641}
   m_Layer: 7
   m_Name: BlockTrap
   m_TagString: Untagged
@@ -156,3 +157,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04445d2736b70a84b81ba5b234d88b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2736643012122880641
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8385394954423576664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4097d73e6406449ba31565c07d8e74f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
