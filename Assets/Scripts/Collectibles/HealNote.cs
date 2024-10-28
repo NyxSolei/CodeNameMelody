@@ -26,7 +26,7 @@ public class HealNote : MonoBehaviour , IItem
             }
             else
             {
-                PlayerControls.instance.UpdateHealth(_healthRestore);
+                PlayerControls.instance.Heal(_healthRestore);
             }
             
             SoundSystem.instance.PlayHealSound();

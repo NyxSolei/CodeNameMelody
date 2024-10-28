@@ -3800,6 +3800,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 309751165}
     m_Modifications:
+    - target: {fileID: 1862436401596775492, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
+      propertyPath: m_SortingLayer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862436401596775492, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1624922763
+      objectReference: {fileID: 0}
     - target: {fileID: 3805183780026945079, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -3903,6 +3911,14 @@ PrefabInstance:
     - target: {fileID: 7985250684429278840, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202966589501989199, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522461997391870486, guid: bbb588612f5afba4ca4724f516e68d40, type: 3}
+      propertyPath: looping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
