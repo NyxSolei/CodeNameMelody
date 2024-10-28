@@ -3975,7 +3975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6888618456523604625, guid: b7a6700ec7d89f74f92a7ab8af707040, type: 3}
       propertyPath: m_Name
-      value: WinningBehavior
+      value: WinOrLoseMechanic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
