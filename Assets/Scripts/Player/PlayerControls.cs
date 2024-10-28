@@ -428,9 +428,17 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     }
     public void Die()
     {
-        SoundSystem.instance.PlayDeathSound();
-        this._rb.position = this.GetLastCheckpoint();
-        //this.UpdateHealthAtStart();
+        if (!GameOverBehavior.instance.GameOverCheck())
+        {
+            SoundSystem.instance.PlayDeathSound();
+            this._rb.position = this.GetLastCheckpoint();
+            RestartDisplay.instance.updateRestartCount();
+        }
+        else
+        {
+            GameOverBehavior.instance.GameOverScreenDisplay();
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

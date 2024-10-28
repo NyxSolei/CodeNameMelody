@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481938859050523210}
   - component: {fileID: 4932459004111074206}
+  - component: {fileID: 4552475012776253523}
   m_Layer: 0
   m_Name: WinningBehavior
   m_TagString: Untagged
@@ -42,5 +43,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1688a80fb64844f43aea559f4e0ec268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4552475012776253523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888618456523604625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6501e503920ed1f4ab4f406090df493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
