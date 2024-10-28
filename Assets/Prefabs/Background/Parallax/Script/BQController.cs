@@ -9,6 +9,8 @@ public class BQController : MonoBehaviour
     public GameObject cam;
     public Vector2 parallaxEffect;
     private float _distance;
+    public int layerIndex;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,19 +39,17 @@ public class BQController : MonoBehaviour
             startPos.x -= length.x;
         }
 
-        if (movementY > startPos.y + length.y)
+        if (layerIndex != 1 && layerIndex != 2) 
         {
-            startPos.y += length.y;
-        }
-        else if (movementY < startPos.y - length.y)
-        {
-            startPos.y -= length.y;
+            if (movementY > startPos.y + length.y)
+            {
+                startPos.y += length.y;
+            }
+            else if (movementY < startPos.y - length.y)
+            {
+                startPos.y -= length.y;
+            }
         }
     }
 
-    /*void Update()
-   {
-       _distance = (cam.transform.position.x * parallaxEffect);
-       transform.position = new Vector2(startPos + _distance, transform.position.y);
-   }*/
 }
