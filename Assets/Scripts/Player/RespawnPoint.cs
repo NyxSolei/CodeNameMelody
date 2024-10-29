@@ -8,17 +8,27 @@ public class RespawnPoint : MonoBehaviour
     private string _playerTag = "Player";
     private bool _isSet = false;
     public ParticleSystem _respaunPointEffect;
+    public GameObject _triangleLight;
+    public ParticleSystem _lightBugs;
     [SerializeField] Text _checkpointReached;
     private float _timePerCharacter = 0.05f;
     private float fadeDuration = 1.0f;
     private Coroutine hideTextCoroutine;
     private string _textContent = "Checkpoint saved!";
+    private SpriteRenderer spriteRenderer;
 
 
 
     private void Start()
     {
         _respaunPointEffect.Stop();
+        _lightBugs.Stop();
+
+        spriteRenderer = _triangleLight.GetComponent<SpriteRenderer>();
+        Color color = spriteRenderer.color;
+        color.a = 0f;
+        spriteRenderer.color = color;
+
     }
 
 
@@ -31,8 +41,34 @@ public class RespawnPoint : MonoBehaviour
             this._isSet = !this._isSet;
             TextDisplay(this._textContent);
 
-            _respaunPointEffect.Play();
+            StartCoroutine(FadeIn());
+
         }
+    }
+    private IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+        Color color = spriteRenderer.color;
+
+        _respaunPointEffect.Play();
+        _lightBugs.Play();
+
+        while (elapsedTime < fadeDuration) 
+        {
+
+            color.a = Mathf.Lerp(0f, 0.08f, elapsedTime / fadeDuration);
+            spriteRenderer.color = color;
+
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+
+        color.a = 0.08f;
+        spriteRenderer.color = color;
+        yield return new WaitForSeconds(1f);
+       
     }
 
     public void TextDisplay(string textoToDisplay)
