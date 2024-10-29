@@ -29,13 +29,26 @@ public class ShieldDisplay : MonoBehaviour
 
     public void UpdateShieldDisplay()
     {
-        int lengthOfArray = PlayerControlPiano.instance.GetCurrentShieldPower()/this._imageRemovalIncrement;
+        /*int lengthOfArray = PlayerControlPiano.instance.GetCurrentShieldPower()/this._imageRemovalIncrement;
 
         if (lengthOfArray < this._instantiatedShieldPrefabs.Length && this._instantiatedShieldPrefabs!=null)
         {
             for(int removalIndex=lengthOfArray; removalIndex<this._instantiatedShieldPrefabs.Length; removalIndex++)
             {
                 Destroy(this._instantiatedShieldPrefabs[removalIndex]);
+            }
+        }
+        */
+        int currentShieldPower = PlayerControls.instance.GetShieldPower();
+        int shieldsToKeep = currentShieldPower / _imageRemovalIncrement;
+
+        // Destroy only the shields that are beyond the current shield power
+        for (int i = shieldsToKeep; i < _instantiatedShieldPrefabs.Length; i++)
+        {
+            if (_instantiatedShieldPrefabs[i] != null)
+            {
+                Destroy(_instantiatedShieldPrefabs[i]);
+                _instantiatedShieldPrefabs[i] = null;  // Nullify to avoid future issues
             }
         }
     }

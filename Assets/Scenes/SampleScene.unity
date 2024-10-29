@@ -1581,6 +1581,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1889473156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8800695587424849662, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+  m_PrefabInstance: {fileID: 5479151662694935252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1957671848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,9 +1713,17 @@ PrefabInstance:
       value: 0.8301887
       objectReference: {fileID: 0}
     - target: {fileID: 6229506992325888876, guid: 942395b55abf00747b1e47a290a78f69, type: 3}
+      propertyPath: _door
+      value: 
+      objectReference: {fileID: 1889473156}
+    - target: {fileID: 6229506992325888876, guid: 942395b55abf00747b1e47a290a78f69, type: 3}
       propertyPath: _vingette
       value: 
       objectReference: {fileID: 33678558}
+    - target: {fileID: 6229506992325888876, guid: 942395b55abf00747b1e47a290a78f69, type: 3}
+      propertyPath: _unlockedDoor
+      value: 
+      objectReference: {fileID: 21300000, guid: 7279f51b261e8f748a3f3f6db20b0f47, type: 3}
     - target: {fileID: 6229506992325888876, guid: 942395b55abf00747b1e47a290a78f69, type: 3}
       propertyPath: _recordPlayerPrefab.Array.data[0]
       value: 
@@ -1976,6 +1989,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 429094893097546226, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 429094893097546226, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -676857441
+      objectReference: {fileID: 0}
     - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
       propertyPath: UVModule.mode
       value: 1
@@ -1992,6 +2013,14 @@ PrefabInstance:
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 07f08e238beda0f4b9fa20e6a9458eaf, type: 3}
+    - target: {fileID: 2825973267039525176, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825973267039525176, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -676857441
+      objectReference: {fileID: 0}
     - target: {fileID: 4200953470512349787, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
       propertyPath: m_SortingLayer
       value: 7

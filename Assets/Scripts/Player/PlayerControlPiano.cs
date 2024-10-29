@@ -61,17 +61,20 @@ public class PlayerControlPiano : PlayerControlsAbstract, ICooldown
             {
                 this.TakeDamage(Mathf.Abs(this.GetShieldPower() - damageTaken));
                 this.SetShieldToMin();
+                PlayerControls.instance.SetShieldPower(GetMinShieldPower());
+                PlayerControls.instance.StopShieldOnCharacter();
             }
             else
             {
                 this.SetShieldPower(this.GetShieldPower() - damageTaken);
+                PlayerControls.instance.SetShieldPower(this.GetShieldPower() - damageTaken);
             }
         }
         else
         {
             this.TakeDamage(damageTaken);
+            PlayerControls.instance.StopShieldOnCharacter();
         }
-
         ShieldDisplay.instance.UpdateShieldDisplay();
     }
     public override void UseAbility()
@@ -81,7 +84,10 @@ public class PlayerControlPiano : PlayerControlsAbstract, ICooldown
         // need to set cooldown time
         if (!this._isShieldSet)
         {
+            PlayerControls.instance.DisplayShieldOnCharacter();
             this.SetShieldPower(this._shieldPowerMax);
+            SetCurrentShieldPower();
+            PlayerControls.instance.SetShieldPower(this._shieldPowerMax);
             this._isShieldSet = true;
             ShieldDisplay.instance.InstantiateNewShieldDisplay();
         }

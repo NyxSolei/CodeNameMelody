@@ -6,7 +6,7 @@ public class TrapManager : MonoBehaviour
 {
     [SerializeField] Transform[] _trapLocations;
     [SerializeField] GameObject[] _trapsPrefabs = new GameObject[3];
-    private float _addedYToFallingTrap = 35;
+    private float _addedYToFallingTrap = 20;
     private int _blockTrapIndex = 0;
     private int _fallingTrapIndex = 1;
     private float _addedYToBlockTrap = 8.5f;
