@@ -124,7 +124,7 @@ public class DisplayText : MonoBehaviour
             }
             else if(type== _typeFinal)
             {
-                SceneManager.LoadScene("ClosingScene");
+                SceneManager.LoadScene("GoodEnding");
             }
         }
     }
