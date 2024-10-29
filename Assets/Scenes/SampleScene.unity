@@ -1989,50 +1989,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 429094893097546226, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: m_SortingLayer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094893097546226, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -676857441
-      objectReference: {fileID: 0}
-    - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: UVModule.mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: UVModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 1380954477781700219, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: UVModule.sprites.Array.data[0].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 07f08e238beda0f4b9fa20e6a9458eaf, type: 3}
-    - target: {fileID: 2825973267039525176, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: m_SortingLayer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2825973267039525176, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -676857441
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200953470512349787, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: m_SortingLayer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200953470512349787, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -676857441
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200953470512349787, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5322387259853481081, guid: 1fc6c539d7e18954e90bb080ff18987e, type: 3}
       propertyPath: m_Name
       value: Door and Juke
