@@ -17,15 +17,35 @@ public class RestartDisplay : MonoBehaviour
             instance = this;
         }
     }
+
+    public void IncreaseRestartCount()
+    {
+        _restartCount+=1;
+    }
     public void updateRestartCount()
     {
-        _restartImages[_restartCount].enabled = false;
-        _restartCount++;
+        for(int index=0; index<3; index++)
+        {
+            if (_restartImages[index].enabled)
+            {
+                _restartImages[index].enabled = false;
+                break;
+            }
+        }
     }
 
     public int GetRestartCount()
     {
-        return this._restartCount;
+        int restartCount = 0;
+        for (int index = 0; index < 3; index++)
+        {
+            if (!_restartImages[index].enabled)
+            {
+                restartCount++;
+            }
+        }
+
+        return restartCount;
     }
 
 }

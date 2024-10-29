@@ -407,6 +407,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         {
             // add here the death scene music and stuff
             this.Die();
+            return;
         }
         else if (this.gameObject.transform.position.y <= this._deathYtransform)
         {
