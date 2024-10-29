@@ -6,7 +6,7 @@ public class FallingTrapManager : MonoBehaviour, DamageInterface.IDamagable
 {
     private Rigidbody2D _rb;
     private bool _hasFallen = false;
-    private int _fallingTrapDamage = 10;
+    private int _fallingTrapDamage = 5;
     private int _fallingTrapHealth = 20;
     
     void Start()

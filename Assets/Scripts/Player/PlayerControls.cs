@@ -11,7 +11,9 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     [SerializeField] Sprite SaxPlayerSprite;
     [SerializeField] Transform _groundCheck;
     [SerializeField] LayerMask _groundLayer;
-
+    [SerializeField] ParticleSystem _shieldParticle;
+    [SerializeField] ParticleSystem _outerShieldParticle;
+    [SerializeField] ParticleSystem _onChangeParticles;
 
     //privates
     private Rigidbody2D _rb;
@@ -55,8 +57,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     private string _isSaxAnimLabel = "IsSax";
     private string _isGuitarAnimLabel = "IsGuitar";
     private string _isJumpingAnimLabel = "IsJumping";
+    private string _healthAnimLabel = "Health";
     private float _damageTakenXPushback = -10;
     private bool _disableControls = false;
+    private int _shieldPower = 0;
+    private bool _firstTimeChange = true;
 
     public static PlayerControls instance;
     void Awake()
@@ -67,9 +72,20 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             instance = this;
         }
     }
+
+    public int GetShieldPower()
+    {
+        return _shieldPower;
+    }
+
+    public void SetShieldPower(int power)
+    {
+        this._shieldPower = power;
+    }
     public void ChangeCurrentCharacterSprite()
     {
-        if(this.GetCurrentCharacterType() == this._guitarType)
+        
+        if (this.GetCurrentCharacterType() == this._guitarType)
         {
             //this._currentSprite = this.GuitarPlayerSprite;
             this._animator.SetBool(this._isGuitarAnimLabel, true);
@@ -146,7 +162,11 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         // increases character index by 1
         // if index out of bounds, returns index to 0
         SoundSystem.instance.stopCurrentBGM();
-
+        if (!_firstTimeChange)
+        {
+            _onChangeParticles.Play();
+        }
+        
         if (this.GetCurrentCharacterTypeIndex() == this.GetMaxCharacterTypeIndex())
         {
             this.SetCurrentCharacterType(this._firstCharacterTypeIndex);
@@ -169,6 +189,18 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         {
             this.TriggerCharacterChange();
         }
+    }
+
+    public void DisplayShieldOnCharacter()
+    {
+        _shieldParticle.Play();
+        _outerShieldParticle.Play();
+    }
+
+    public void StopShieldOnCharacter()
+    {
+        _shieldParticle.Stop();
+        _outerShieldParticle.Stop();
     }
     private void CheckButtonToTriggerAbility()
     {
@@ -194,6 +226,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
             }
             else if (PlayerControlPiano.instance.CooldownComplete() || PlayerControlPiano.instance.GetIsShieldSet())
             {
+
+
                 PlayerControlPiano.instance.UseAbility();
                 if (!CutsceneManager.instance.GetHasPianoPlayed())
                 {
@@ -288,6 +322,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     }
     public void SetPlayerCharacterAtStart()
     {
+        StopShieldOnCharacter();
         // get rigidbody
         this._rb = GetComponent<Rigidbody2D>();
         // get animator
@@ -318,6 +353,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         CutsceneManager.instance.DisableParticleSystem();
         // handle record anim
         CutsceneManager.instance.DisableRecordShowing();
+        // finish first char change
+        _firstTimeChange = false;
 
 
 
@@ -329,6 +366,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         PlayerControlSax.instance.SetHealth(this._startingHealthPoints);
         // hanlde life bar
         LifeBarDisplay.instance.InitializeHealthBar();
+        // handle anim
+        this._animator.SetInteger(this._healthAnimLabel, this._startingHealthPoints);
     } 
     public void UpdateHealth(int hp)
     {
@@ -338,6 +377,8 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         PlayerControlSax.instance.SetHealth(updateHp);
         // hanlde life bar
         LifeBarDisplay.instance.UpdateHealthBar();
+        // handle anim
+        this._animator.SetInteger(this._healthAnimLabel, updateHp);
     }
 
     public void Heal(int hp)
@@ -348,6 +389,7 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
         PlayerControlSax.instance.SetHealth(updateHp);
         // hanlde life bar
         LifeBarDisplay.instance.UpdateHealthBarOnHeal();
+        this._animator.SetInteger(this._healthAnimLabel, updateHp);
     }
 
     public int GetStartingHealth()
@@ -371,6 +413,10 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
 
         // handle display
         LifeBarDisplay.instance.UpdateHealthBar();
+
+        // handle anim
+
+        this._animator.SetInteger(this._healthAnimLabel, this.GetHealth());
     }
 
     public int GetHealth()
@@ -427,13 +473,26 @@ public class PlayerControls : MonoBehaviour, DamageInterface.IDamagable
     {
         SetCheckpoint(this._rb.position.x, this._rb.position.y);
     }
+
+    private IEnumerator DeathSequence()
+    {
+        _animator.SetTrigger("Death");
+        SoundSystem.instance.PlayDeathSound();
+        SetDisableControls();
+        yield return new WaitForSeconds(3);
+
+        EnableControls();
+        _animator.ResetTrigger("Death");
+        this._rb.position = this.GetLastCheckpoint();
+        RestartDisplay.instance.updateRestartCount();
+        Heal(20);
+    }
+
     public void Die()
     {
         if (!GameOverBehavior.instance.GameOverCheck())
         {
-            SoundSystem.instance.PlayDeathSound();
-            this._rb.position = this.GetLastCheckpoint();
-            RestartDisplay.instance.updateRestartCount();
+            StartCoroutine(DeathSequence());
         }
         else
         {

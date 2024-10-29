@@ -29,7 +29,7 @@ public class RestartDisplay : MonoBehaviour
             if (_restartImages[index].enabled)
             {
                 _restartImages[index].enabled = false;
-                break;
+                return;
             }
         }
     }
